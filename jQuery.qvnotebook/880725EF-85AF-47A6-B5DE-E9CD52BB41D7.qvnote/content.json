@@ -1,0 +1,124 @@
+{
+  "title": "Events & Effects",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<b>Event methods</b><div>The .on() method is used to handle all events. Behind the scenes, jQuery handles all of the cross browser issues.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('li').on('click', function() {\n  $(this).addClass('complete');\n});"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  var ids = '';\n  var $listItems = $('li');\n\n  $listItems.on('mouseover click', function() {\n    ids = this.id;\n    $listItems.children('span').remove();\n    $(this).append(' <span class=\"priority\">' + ids + '</span>');\n  });\n\n  $listItems.on('mouseout', function() {\n    $(this).children('span').remove();\n  });\n})"
+    },
+    {
+      "type": "text",
+      "data": "<b>The Event Object</b><div>Every event handling function receives an event object. It has methods and properties related to the event that occurred</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('li').on('click', function(e) {\n  eventType = e.type;\n})"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Event Properties\ntype // Type of event\nwhich // BUtton or key that was pressed\ndata // An object literal containing extra information passed to the function\ntarget //DOM element that initiated the event\npageX // Mouse position from top of viewport\npageY // Mouse position from top of viewport\ntimeStamp // Number of milliseconds from Jan 1st, 1970 to when the event was triggered\n\n// Event Methods\n.preventDefault() // Prevents the default\n.stopPropogation() // Stops the event bubbling up to ancestors"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  $('li').on('click', function(e) {\n    $('li span').remove();\n    var date = new Date();\n    date.setTime(e.timeStamp);\n    var clicked = date.toDateString();\n    $(this).append('<span class=\"date\">' + clicked + ' ' + e.type + '</span>')\n  });\n});"
+    },
+    {
+      "type": "text",
+      "data": "<b>Additional parameters for event handlers</b><div>The <code>.on()</code> method has two optional properties that let you: Filter the initial jQuery selection to respond to a subset of the elements; Pass extra information into the event handler using object literal notation.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".on(event[, selector][, data], function(e));"
+    },
+    {
+      "type": "text",
+      "data": "<b>Delegating Events</b><div>The event handler will run when users click or mouseover items in the list, except for the last list item. It writes out the content of the element the user interacted with, a status message (using the data property), and the event type. The information passed in the data property here uses object literal notation (so it could handle multiple properties)</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  var listItem, itemStatus, eventType\n  \n  $('ul').on(\n    'click mouseover',\n    ':not(#four)',\n    [status: 'important'],\n    function(e) {\n      listItem = 'Item: ' + e.target.textContent + '</br>';\n      itemStatus = 'Status: ' + e.data.status + '</br>';\n      eventType = 'Event: ' + e.type;\n      $('#notes').html(listItem + itemStatus + eventType);\n    }\n  );\n});"
+    },
+    {
+      "type": "text",
+      "data": "<b>Effects</b><div>When you start using jQuery. the effects methods can enhance your web page with transitions and movement.</div><div>CSS3 animations are often faster than their jQuery counterparts.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Basic effects\n.show() // Displays selected item\n.hide() // Hides selected elements\n.toggle() // Toggles between showing and hiding selected elements\n\n// Fading effects\n.fadeIn() // Fades in selected elements in making them opaque\n.fadeOut() // Fades out selected elements making them transparent\n.fadeTo() // Changes opacity of selected elements\n.fadeToggle() // Hides or shows selected elements by changing their opacity\n\n// Sliding Effects\n.slideUp() // Shows selected elements with a sliding motion\n.slideDown() // Hides selected elements with a sliding motion\n.slideToggle() // Hides or shows selected elements with a sliding motion\n\n// Custom Effects\n.delay() // Delays execution of subsequent items in a queue\n.stop() // Stops an animation if it is currently running\n.animate() // Creates custom animations"
+    },
+    {
+      "type": "text",
+      "data": "<b>Basic effects</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  $('h2').hide().slideDown(); // Hides and slides down\n  var $li = $('li'); // Select all li and store in variable\n  $li.hide().each(function(index) {  // Hide all \n    $(this).delay(700 * index).fadein(700) // each appears one by one\n  });\n  $li.on('click', function() { // Event listener\n    $(this).fadeOut(700); // Fade out\n  });\n});"
+    },
+    {
+      "type": "text",
+      "data": "<b>Animate CSS properties</b><div>The <code>.animate()</code> method allows you to create some of your own effects and animations by changing CSS properties.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".animate({\n  // Styles you want to change\n  }\n  [, speed] // Duration of animation in milliseconds\n  [, easing] // Linear or swing\n  [, complete] // Callback function\n);"
+    },
+    {
+      "type": "text",
+      "data": "You can animate any CSS property whoses value can be represented as a number, e.g <code>height</code>, <code>width</code> and <code>font-size</code>. But not thoses whose value would be a string, such as <code>font-family</code> or <code>text-transform</code>"
+    },
+    {
+      "type": "text",
+      "data": "Using animation"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  $('li').on('click', function() { // Event listener on all <li>\n    $(this).animate({ // Animate method called on the clicked item\n      opacity: 0.0, // \n      paddingLeft: '+=80' // Increae by 80\n    }, 500, function() { // 500ms duration \n      $(this).remove(); // Call back\n    });\n  });\n});"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

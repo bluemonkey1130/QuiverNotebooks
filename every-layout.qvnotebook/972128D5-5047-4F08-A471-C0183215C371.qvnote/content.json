@@ -1,0 +1,100 @@
+{
+  "title": "The Stack",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>The trick is to style the context, not the individual element(s). The <code>.s</code><code>tack</code> layout primitive injects margin between elements via their common parent:</div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".stack {\n  --space: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n}\n.stack > * {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n.stack > * + * {\n  margin-top: var(--space);\n}"
+    },
+    {
+      "type": "text",
+      "data": "<div>Using the adjacent sibling combinator (+) margin-top, is only applied where the element is preceded by another element: no “left over” margin. The universal (or wildcard) selector ( ) ensures any and all elements are affected. The key construct is known as the owl.</div><div><h3>Recursion</h3><div>In the previous example, the child combinator (&gt;) ensures the margins only apply to children of the <code>.stack</code> element. However, it’s possible to inject margins recursively by removing this combinator from the selector.</div></div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".stack * + * {\r  margin-top: 1.5rem;\r}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Nested variants</h3><div>Recursion applies the same margin no matter the nesting depth. A more deliberate approach would be to set up alternative non-recursive <code>.stacks</code> with different margin values, and nest them where suitable. Consider the following.</div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": "[class^='stack'] > * {// The first declaration block’s selector resets the vertical margin for all stack-like elements (by matching class values that with stack).\r  margin-top: 0;\r  margin-bottom: 0;\r}\r// The following two blocks set up alternative .stacks, with different margin values.\r.stack-small > * + * {\r  margin-top: 1.5rem;\r}\r.stack-large > * + * {\r  margin-top: 3rem;\r}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Exceptions</h3><div>CSS works best as an exception-based language. You write far-reaching rules, then use the cascade to override these rules in special cases. As written in, you can create per-element exceptions within a single context (i.e. at the same nesting level).</div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".stack {\r  --space: 1.5rem;\r}\r.stack > * + * {\r  margin-top: var(--space);\r}\r.stack-exception,\r.stack-exception + * {\r  --space: 3rem;\r}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Splitting the stack</h3><div>By making the .stack a Flexbox context, we can give it one final power: the ability to add an auto margin to a chosen element. This way, we can group elements to the top and bottom of the vertical space. Useful for card-like components.</div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".stack {\r  --space: 1.5rem;\r  display: flex;\r  flex-direction: column;\r  justify-content: flex-start;\r}\r.stack > * + * {\r  margin-top: var(--space);\r}\r.stack > :nth-child(2) {\r  margin-bottom: auto;\r}"
+    },
+    {
+      "type": "text",
+      "data": "Only Child"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".stack:only-child {\r  height: 100%;\r}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>JavaScript</h3>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "/**\n * @module stack-l\n * @description\n * A custom element for injecting white space (margin) between flow \n * (block) elements along a vertical axis.\n * @property {string} space=var(--s1) A CSS `margin` value\n * @property {boolean} recursive=false Whether the spaces apply recursively (i.e. regardless of nesting level)\n * @property {number} splitAfter=null The element after which to _split_ the stack with an auto margin\n */\nexport default class Stack extends HTMLElement {\n  constructor() {\n    super();\n    this.render = () => {\n      this.i = `Stack-${[this.space, this.recursive, this.splitAfter].join('')}`;\n      this.dataset.i = this.i;\n      if (!document.getElementById(this.i)) {\n        let styleEl = document.createElement('style');\n        styleEl.id = this.i;\n        styleEl.innerHTML = `\n          [data-i=\"${this.i}\"]${this.recursive ? '' : ' >'} * + * {\n            margin-top: ${this.space};\n          }\n      \n          ${this.splitAfter ? `\n            [data-i=\"${this.i}\"]:only-child {\n              height: 100%;\n            }\n      \n            [data-i=\"${this.i}\"] > :nth-child(${this.splitAfter}) {\n              margin-bottom: auto;\n            }`\n          : ''}\n        `.replace(/\\s\\s+/g, ' ').trim();\n        document.head.appendChild(styleEl);\n      }\n    }\n  }\n\n  get space() {\n    return this.getAttribute('space') || 'var(--s1)';\n  }\n\n  set space(val) {\n    return this.setAttribute('space', val);\n  }\n\n  get recursive() {\n    return this.hasAttribute('recursive');\n  }\n\n  set recursive(val) {\n    return this.setAttribute(val ? 'recursive' : '');\n  }\n\n  get splitAfter() {\n    return this.getAttribute('splitAfter') || null;\n  }\n\n  set splitAfter(val) {\n    return this.setAttribute('splitAfter', val);\n  }\n\n  static get observedAttributes() {\n    return ['space', 'recursive', 'splitAfter'];\n  }\n\n  connectedCallback() {\n    this.render();\n  }\n\n  attributeChangedCallback() {\n    this.render();\n  }\n}\n\nif ('customElements' in window) {\n  customElements.define('stack-l', Stack);\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "stack-l {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n}\n\nstack-l > * + * {\n  margin-top: var(--s1);\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Basic</h3>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "<stack-l>\r  <h2><!-- some text --></h2>\r  <img src=\"path/to/some/image.svg\" />\r  <p><!-- more text --></p>\r</stack-l>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Nested</h3>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "<stack-l space=\"3rem\">\r  <h2><!-- heading label --></h2>\r  <stack-l space=\"1.5rem\">\r    <p><!-- body text --></p>\r    <p><!-- body text --></p>\r    <p><!-- body text --></p>\r  </stack-l>\r  <h2><!-- heading label --></h2>\r  <stack-l space=\"1.5rem\">\r    <p><!-- body text --></p>\r    <p><!-- body text --></p>\r    <p><!-- body text --></p>\r  </stack-l>\r</stack-l>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Recursive</h3>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "<stack-l recursive>\r  <div><!-- first level child --></div>\r  <div><!-- first level sibling --></div>\r  <div>\r    <div><!-- second level child --></div>\r    <div><!-- second level sibling --></div>\r  </div>\r</stack-l>"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "title": "Conditionals",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-size: 13px; font-weight: normal;\">Conditionals alter program flow. They enable you to ask questions about certain things and respond to the answers you get in different ways. There are three types of nonlooping conditionals:</span><br></h3><div><ul><li>The <code>if</code> statement</li><li>The <code>switch</code> statement</li><li>The <code>?</code> Operator</li></ul><h3><span style=\"font-weight: normal;\">The <code>if</code> statement</span></h3><h3><span style=\"font-size: 13px; font-weight: normal;\">The code within such a stament is executed only if the given expression evaluates to true.</span></h3></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "a = 110\nif (a > 100){\n  console.log(\"a is greater than 100\")\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">The <font face=\"Menlo, Consolas, Ubuntu Mono, Monaco, source-code-pro, monospace\" size=\"2\">else</font>&nbsp;statement</span></h3><h3><span style=\"font-size: 13px; font-weight: normal;\">When a condition has not been met, you can execute an alternative by using an <code>else</code>&nbsp;</span><font size=\"2\"><span style=\"font-weight: normal;\">statement, like this:</span></font></h3>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "a = 110\nif (a > 100){\n  console.log(\"a is greater than 100\")\n}else{\n    console.log(\"a is less than or equal to 100\")\n}"
+    },
+    {
+      "type": "text",
+      "data": "​JavaScript uses&nbsp;<code>else</code> &amp; then <code>if</code>​ not&nbsp;<code>elseif</code>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "a = 110\nif (a > 100){\n  console.log(\"a is greater than 100\")\n}else if(a < 100){\n    console.log(\"a is less than to 100\")\n}else{\n    console.log(\"a is equal to 100\")\n}"
+    },
+    {
+      "type": "text",
+      "data": "The <code>switch</code> statement<div>Is useful when one varible or the result of an expression can have multiple values, and you want to perform a different function for each value</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "page = \"Home\"\nswitch(page){\n  case \"Home\":\n      console.log(\"Home Page\")\n    break\n  case \"About\":\n      console.log(\"About Page\")\n    break\n  case \"News\":\n      console.log(\"News Page\")\n    break\n  default:\n      console.log(\"Unrecognised\")\n    break\n}"
+    },
+    {
+      "type": "text",
+      "data": "<div>The <code>?</code> Operator</div>The <code>?</code> ternary operator combined with <code>:</code>​ character, provides a quick way of doing <code>if…else</code> tests. With it you can write an expression to evaluate, and then follow it with a <code>?</code> Symbol and the code will execute if the expression is <code>true</code>​. After that, place a : and the code to execute if the expression evaluates to false."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "a = 5\nsize = a <= 5 ? \"short\" : \"long\"\nconsole.log(size)"
+    },
+    {
+      "type": "text",
+      "data": "The operator is represented by a quation marks, called a ternary, becasue the operator has three operands"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let result = condition ? value1 : value2;"
+    },
+    {
+      "type": "text",
+      "data": "The condition is evaluated: if it is truth the <code>value1</code> is returned, otherwise - <code>value2</code>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let accessAllowed = (age > 18) ? true : false;"
+    },
+    {
+      "type": "text",
+      "data": "<div>Technically, we can omit the parentheses around age &gt; 18. The question mark operator has a low precedence, so it executes after the comparison &gt;.</div>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Multiple ‘?’</b><div>A sequence of question mark operators <code>?</code> can return a value that depends on more than on condition.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let age = prompt('age?', 18);\n\nlet message = \n  (age < 3) ? 'Hi, baby!' : // The first question mark checks whether age < 3.\n  (age < 18) ? 'Hello!' : // Otherwise, it continues to checking age < 18\n  (age < 100) ? 'Greetings!' : // Otherwise, it continues to checking age < 100\n  'What an unusual age!'; // Otherwise\n\nalert( message );"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "title": "Useful functions",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><b>Access CSS from Javascript&nbsp;</b></h3><div><b>The O Function</b><br></div><div>A simplier version of <code>getElementById();</code>​ if an object is passed to the function, it just returns that object back again. Otherwise, it asumes that an ID is passed and returns the object to which the ID refers.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function O(i){\n  return typeof i == 'object' ? i : document.getElementById(i);\n}\nO('id').style.color = 'green'"
+    },
+    {
+      "type": "text",
+      "data": "<div><div><b>The S Function</b></div></div><div>The function performs the task of returning the style peroperty of the element referred to.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function S(i){\n  return O(i).style\n}\nS('myobj').color = 'green'"
+    },
+    {
+      "type": "text",
+      "data": "<b>The C Function</b><div>The function accesses all the elements on the&nbsp;page with a particular class &amp; stores them in an array.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function C(i){\n  return document.getElementsByClassName(i)\n}\nmyArray = C('class');\n\n//Looping through array\nfor (i=0 ; i < myArray.length ; ++i){\n  S(myArray[i]).textDecoration ='underline'\n}"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"font-size: 17px;\">Accessing CSS properties from JavaScript</span>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "myobject.fontSize = '16pt'"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "myobject.setAttribute('style', 'font-size:16pt')"
+    },
+    {
+      "type": "text",
+      "data": "Common Properties<div>Using JavaScript, you can modify any property of any element in a web document, in a similar manner to css.</div>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<div id=\"object\">Div Object</div>\n<script>\n  S('object').border = 'solid 1px red'\n  S('object').width = '100px'\n  S('object').height = '100px'\n  S('object').background = '#eee'\n  S('object').color = 'blue'\n  S('object').fontSize = '15pt'\n  S('object').fontFamily = 'Helvetica'\n  S('object').fontStyle = 'italic'\n</script>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

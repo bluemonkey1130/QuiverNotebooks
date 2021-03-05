@@ -1,0 +1,62 @@
+{
+  "title": "Looping",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<b>Looping</b><div>Again, you will find many close similarities between JavaScript and PHP when it comes to looping. Both languages support&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">while</code>,&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">do…while</code>, and&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">for</code>&nbsp;loops</div><div><br></div><div><b>While Loops</b></div><div>A JavaScript&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">while</code>&nbsp;loop first check the value of an expression and starts executing the statements within the loop only if that expression is&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">true</code>. If it is&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">false</code>, execution skips over to the next JavaScript statement (if any). Upon completing an iteration of the loop, the expression is again tested to see if it is&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">true</code>​, and the process continues until such a time as the expression evaluates to&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">false</code>&nbsp;or until execution is otherwise halted.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "counter = 0\nwhile (counter < 5){\n  console.log(counter)\n  ++counter\n}"
+    },
+    {
+      "type": "text",
+      "data": "<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">do…while</code>&nbsp;Loops<div>When loop, you require a loop to iterate at least once before any tests are made, use a&nbsp;<span style=\"background-color: rgba(255, 255, 255, 0.1); font-family: Menlo, Consolas, &quot;Ubuntu Mono&quot;, Monaco, source-code-pro, monospace; font-size: 11.699999809265137px;\"><code style=\"font-size: 10.529999732971191px; background-color: rgba(255, 255, 255, 0.1);\">do…while</code>​&nbsp;</span>which is similar to a while loop, except that the test expression is checked only after each iteration of the loop. So, to output the first seven results in the 7 times table.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "count = 1\ndo {\n  console.log(count + \" times 7 is \" + count * 7)\n} while (++count <= 7)"
+    },
+    {
+      "type": "text",
+      "data": "<b><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">for</code>&nbsp;Loops</b><div>A for loop combines the best of all worlds into a single looping construct that allows you to pass three parameters for each statement:<div><ul><li>An initialisation expression</li><li>A conditional expression</li><li>A modification expression</li></ul><div>These are seperated by semicolons, like this:&nbsp;<code>for (expr1 ; expr2 ; expr3)</code>. At the start of the first iteration of the loop, the initialisation expression is executed. In the case of the code for the multiplication table for 7, <code>count</code>​ would be initialised to the value 1. Then, each time around the loop, the condition expression (in this case, <code>count &lt;= 7</code>) is tested, and the loop is entered only if the condition is <code>true</code>. Finally, at the end of each iteration, the modification expression is executed. In the case of the multiplication table for 7, the variable <code>count</code> is incremented</div></div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "for (count = 1 ; count <= 10 ; ++count){\n    console.log(count + \" times 7 is \" + count * 7)\n}\n// Multiple modifications\nfor (i = 1, j = 1 ; i < 10 ; i++, --j){}"
+    },
+    {
+      "type": "text",
+      "data": "<b>Breaking out of a loop</b><div>The <code>break</code> command, which you’ll recall is important inside a <code>switch</code> statement, is also available within <code>for</code> loop. You might need to use this, for example, when searching for a match of some kind. Once the match is found, you know that continuing to search will only waste time and make your visitor wait.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "haystack = new Array()\nhaystack[17] = \"Needle\"\nfor (j = 0 ; j < 20 ; ++j){\n  if(haystack[j] == \"Needle\"){\n    console.log(\"Found at location \" + j)\n  }\n  else {\n    console.log(j)\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": "<b>The <code>continue</code> statement</b><div>Somtimes you don’t want to entirely exit from a loop, but instead wish to skip the remaining statements just for this iteration of the loop. In such cases, you can use the <code>continue</code> command.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "haystack = new Array()\nhaystack[4] = \"Needle\"\nhaystack[11] = \"Needle\"\nhaystack[17] = \"Needle\"\nfor (j = 0 ; j < 20 ; ++j){\n  if(haystack[j] == \"Needle\"){\n    console.log(\"Found at location \" + j)\n    continue\n  }\n  console.log(j)\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

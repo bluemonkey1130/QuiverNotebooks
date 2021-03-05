@@ -1,0 +1,47 @@
+{
+  "title": "Hooks",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>React Hooks</h3><div>A collection of fucntions to be used in functiuon conponents. Hooks can be used to add functionality to funcitonlai components, useState is a example of a hook that can be used to manage state within a function. This rewuire a different syntax;</div><div><br></div><div>Use array destructuring to asign names to the data and a method&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">[date,&nbsp;</code><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">dateMethod] = useState()</code><br></div><div>Importantly react hooks do not merge old data &amp; new. Old date will need to be manully managed. You can call setState multiple times so you can seperate all state out</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// UseState always returns two objects\nconst[someState, setState] = useState('anything') // Current state value || A method to update the state value "
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const someFunction = () => { setSomeState('new state')} // Mutate & Rereder || No Merging"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import React, {useState} from 'react';\n\nconst app = props => { // Class is converted to a functional component\n    const [personsState, setPersonsState] = useState({ // Array destructureing  two elemnts\n        persons: [ // Pass propeties into state\n            {name: 'George', age: 32},\n            {name: 'Klaus-Peter Buchholz', age: 12},\n            {name: 'Sonia Palomares Requena', age: 52}\n        ],\n    });\n    const [otherState, setOtherState] = useState({ // Second usage of setState allows tou to seperate state \n        otherState: 'some other value',\n    });\n    console.log(personsState, otherState)\n    const switchNameHandler = () => {\n\n        // DOnt do this personsState.persons[1].name = \"George\"\n        setPersonsState({\n            persons: [\n                {name: 'George Hawthorne', age: 32},\n                {name: 'Klaus-Peter Buchholz', age: 12},\n                {name: 'Sonia Palomares Requena', age: 27}\n            ],\n            otherState: personsState.otherState // Must recall all old date as it won't be replaced\n        })\n    };\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<button onClick={setPersonsState.switchNameHandler}>Switch Name</button>\n<Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>"
+    },
+    {
+      "type": "text",
+      "data": "React hooks allow you to add functionlaity to functional&nbsp;components, like state managmnet. This is a new syntax and most mature code still will use class basied &nbsp;components."
+    },
+    {
+      "type": "text",
+      "data": "<code>useEffect()</code><div>​this hook allows you to manage lifecyle events in functional components,</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const component = (props) => {\n    useEffect(() => {\n        console.log('[component.js] useEffect()')\n        // Http Requesr\n        setTimeout(() => {\n            alert('saved data to cloud')\n        }, 1000)\n    },[props.persons]) // Fires based on this dependancy\n  )\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "useEffect(() => {\n    console.log('[Cockpit.js] useEffect()')\n    // Http Requetr\n    setTimeout(() => {\n        console.log('[Cockpit.js] saved data to cloud')\n    }, 1000)\n    return () => { // This return applies to deletion of components\n        console.log('[Cockpit.js], Clean up work')\n    }\n},[]) // Passing a empty array will ensure the return only runs when the component is removed\n\nuseEffect(()=>{\n    console.log('[Cockpit.js] 2nd useEffect()')\n    return () => { // This return applies to all changes as thereis no array in the dependancy positon\n        console.log('[Cockpit.js], 2nd Clean up work')\n    }\n})"
+    }
+  ]
+}

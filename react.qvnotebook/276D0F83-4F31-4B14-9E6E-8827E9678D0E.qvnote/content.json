@@ -1,0 +1,96 @@
+{
+  "title": "Component Lifecycle",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Only available in class based components"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "constructor()\ngetDerivedStateProps()\ngetSnapshotBeforeUpdate()\ncomponentDidCatch()\ncomponentWillUnmount()\nshouldComponentUpdate()\ncomponentDidUpdate()\ncomponentDidMount()\nrender()"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Component Lifecycle</span> Creation</h3><div><ol><li><code>Constructor() </code>ES6 <i>Class Feature</i></li><ol><li>Call <code>super(props)</code></li><li><b>Do:</b> Set up State</li><li><b>Dont: </b>Case side effects</li></ol><li><code>getDerivedStateFromProps(props, state)</code></li><ol><li>​<b>Do</b>: Sync state</li><li><b>Dont</b>: Cause side effects</li></ol><li><code>render()</code></li><ol><li>Prepare &amp; Structure JSX Code</li></ol><li>Render Child Components</li><li><code>ComponentDidMount()</code></li><ol><li>​<b>Do</b>: cause side effects</li><li><b>Dont</b>: update State (would trigger re-render)</li></ol></ol></div>"
+    },
+    {
+      "type": "text",
+      "data": "<code>constructor()</code>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "constructor(props) {\n    super(props);\n}"
+    },
+    {
+      "type": "text",
+      "data": "The state can be set here in the contructor, this is where is used to be called, the new syntax compiles to this"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "constructor(props) {\n    super(props);\n    console.log('[App.js] constructor')\n    this.state ={\n        persons: [\n            {id: '14887', name: 'George', age: 32},\n            {id: '49636', name: 'Klaus-Peter Buchholz', age: 12},\n            {id: '45675', name: 'Sonia Palomares Requena', age: 52}\n        ],\n        otherState: 'some other value',\n        showPersons: false,\n    }\n}"
+    },
+    {
+      "type": "text",
+      "data": "<code>getDerivedStateFromProps()</code>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "static getDerivedStateFromProps(props, state){\n    console.log('[App.js] getDerivedStateFromProps',props)\n    return state;\n}"
+    },
+    {
+      "type": "text",
+      "data": "<code>render()</code>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "render() {\n    console.log('[App.js] render')"
+    },
+    {
+      "type": "text",
+      "data": "<code>componentDidMount()</code>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "componentDidMount() {\n    console.log('[App.js] ComponentDidMount')\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Component Lifecycle </span>Update</h3><div><ol><li><code>getDerivedStateFromProps(props, state)</code></li><ol><li>​Do: Sync state to props</li></ol><li><code>shouldComponentUpdate(nextProps, nextState)</code></li><ol><li><b>Do</b>: Decide whether to contiune or Not</li><li><b>Don’t</b>: Cause Side-Effects</li></ol><li>render()</li><ol><li>Updates virtual dom and check againt real</li></ol><li>Updates all child components</li><li>getSnapShotBeforeUpdate(prevProps, prevState)</li><ol><li><b>Do</b>: Last minute DOM ops</li><li><b>Don’t</b>: Cause side effects</li></ol><li><code>ComponentDidUpdate()</code></li><ol><li><b>Do</b>: ​You can make HTTP request here</li><li><b>Don’t</b>: Update state&nbsp;</li></ol></ol></div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "static getDerivedStateFromProps(props, state){\n    console.log('[Persons.js] getDerivedStateFromProps')\n    return state;\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "shouldComponentUpdate(nextProps, nextState, nextContext) {\n    console.log('[Persons.js] shouldComponentUpdate')\n    if (nextProps.persons !== this.props.persons) { // compares the next set of persons to this set of persons and fires if they have changed\n        return true;\n    }else{\n        return false;\n    }\n// return nextProps.persons !== this.props.persons;\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "render() {\n    console.log('[Persons.js] rendering...')\n    return \n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "getSnapshotBeforeUpdate(prevProps, prevState) {\n    console.log('[Persons.js] getSnapshotBeforeUpdate')\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "componentDidUpdate(prevProps, prevState, snapshot) {\n    console.log('[Persons.js] componentDidUpdate')\n}"
+    },
+    {
+      "type": "text",
+      "data": "getSnapShot can pass props to component did updates, such as mouse co ordinates."
+    }
+  ]
+}

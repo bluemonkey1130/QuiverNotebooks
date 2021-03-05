@@ -1,0 +1,53 @@
+{
+  "title": "Selectors",
+  "cells": [
+    {
+      "type": "text",
+      "data": "The element selector<div>To select an element to be manipulated by jQuery, just list its name within the parentheses following the $ symbol (or jQuery function name). For example, if you wish to change the background colour of all &lt;blockquote&gt; elements, you could use a statement such as the following</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('blockquote').css('background', 'lime')"
+    },
+    {
+      "type": "text",
+      "data": "<b>The ID selector</b><div>You can also refer to elements by their IDs if you place a # character in front of the ID name. So, to add a border to the element with the ID of advert (for example), you could use this:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('#advert').css('border', '3px dashed red')"
+    },
+    {
+      "type": "text",
+      "data": "<b>The class selector</b><div>And you can manipulate groupe of elements according to the class they use. For example, to underline all elements that use the class name, you could use this:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('.new').css('text-decoration', 'underline')"
+    },
+    {
+      "type": "text",
+      "data": "<b>Combining Selectors</b><div>Just as with CSS, you may combine selectors into a single jQuery selection using commas</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('blockquote, #advert, .new').css('font-weight', 'bold')"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Gorko ",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h1><span style=\"color: rgb(36, 41, 46); font-size: 16px; background-color: rgb(255, 255, 255);\">A tiny, Sass-powered utility class generator, with handy helpers, that helps you to power your front-ends with a single source of truth.</span></h1>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "npm install gorko"
+    },
+    {
+      "type": "text",
+      "data": "In your Sass (SCSS in this case), import Gorko like so:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "@import '../path/to/your/node_modules/gorko/gorko.scss';"
+    },
+    {
+      "type": "text",
+      "data": "This will generate utility classes based on the default configuration. To configure it for yourself, take this default, and create your own. Once it is created import your config before Gorko, like this:"
+    }
+  ]
+}

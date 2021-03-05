@@ -1,0 +1,72 @@
+{
+  "title": "Finding Elements",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Using jQuery, you can usually select element using CSS-style selectors. Its also offers some extra selectors, noted below with a jQ"
+    },
+    {
+      "type": "text",
+      "data": "Basic Selectors"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "* // All Elements\nelement // All elements with that element name\n#id // Elements whose id attribute has the value specified\n.class // Elements whose clss attribute has value specified\nselector1, selector2 // Elements that match more than one selector"
+    },
+    {
+      "type": "text",
+      "data": "Hierachy"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "ancestor descendant // An element that is a descendant of another element\nparent > child // An element that is a direct child of another element\nprevious + next // Adjacent sibling selector\nprevious - siblings // Will select any elements that are a sibling of the previous"
+    },
+    {
+      "type": "text",
+      "data": "Basic Filters"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ":not(selector) // All elements except the one in the selector\n:first // The first element from the selection\n:last // The last element from the selection\n:even // Elements with an even index number in the selection\n:odd // Elements with an odd index number in the selection\n:eq(index) // Elements with an indes number equal to the on in the parameter\n:gt(index) // Elements with an index number greater than the parameter\n:lt(index) // Elements with and index number less than the parameter\n:header // All <h1> - <h6> elements\n:animated // Elements that are currently being animated\n:focus // The element that currently has focus"
+    },
+    {
+      "type": "text",
+      "data": "Content Filters"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ":contains('text') // Elements that contain the specified text as a parameter\n:empty // All elements that have no children\n:parent // All elements that have a child node (can be text or element)\n:has(selector) //Elements that contain at least one element that matches the selector"
+    },
+    {
+      "type": "text",
+      "data": "Visibility Filters"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ":hidden // All elements that are hidden\n:visible // All elements that consume space in the layout of the page"
+    },
+    {
+      "type": "text",
+      "data": "Child Filters"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ":nth-child(expr) // The value here is not zero-based\n:first-child // First child from the current selection\n:last-child // Last child from the current selection\n:only-child // When there is only one child of the element"
+    },
+    {
+      "type": "text",
+      "data": "Attribute Filters"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "[attribute] // Elements that carry the specified attribute\n[attribute='value'] // Elements that carry the specified attribute with the specified value\n[attribute!='value'] //Elements that carry the specified attribute but not the spcified value\n[attribute]"
+    }
+  ]
+}

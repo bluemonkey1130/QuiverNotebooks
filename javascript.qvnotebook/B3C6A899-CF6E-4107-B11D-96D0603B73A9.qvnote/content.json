@@ -1,0 +1,80 @@
+{
+  "title": "Interrupts",
+  "cells": [
+    {
+      "type": "text",
+      "data": "JavaScript provides access to <i>interrupts</i>, a method by which you can ask the browser to call your code after a set period of time, or even to keep calling it at specified intervals. This gives you a means of handling background tasks such a Ajax communications, or even things like animating web elements.&nbsp;<div><div></div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// There are two types of interrupt: \nsetTimeout() and setInterval()\n// which are turned off using \nclearTimeout() and clearInterval()"
+    },
+    {
+      "type": "text",
+      "data": "Using <code>setTimeout</code><div>When you call setTimeout, you pass it some JavaScript code or the name of a function, and the value in milliseconds representing how long to wait before the code should be executed.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setTimeout(dothis, 5000)\n\nfunction dothis(){\n  alert('This is your wakeup alert!')\n}"
+    },
+    {
+      "type": "text",
+      "data": "Passing a String<div>When you need to provide an argument to a function, you can also pass a string value to the setTimeout function, which will not be executed until the correct time</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setTimeout(\"alert('Hello!')\", 5000)\nsetTimeout(\"console.log('Starting'); alert('Hello!')\", 5000)"
+    },
+    {
+      "type": "text",
+      "data": "Repeating time-outs<div>One technique some programmers use to provide repeating interrupts using the function <code>setTimeout</code> is to call the <code>setTimeout</code> function from the code called by it, This will initiate a never-ending loop of alert windows:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setTimeout(dothis, 5000)\nfunction dothis(){\n  setTimeout(dothis, 5000)\n  alert('I am annoying')\n} // Pops up ever 5 seconds"
+    },
+    {
+      "type": "text",
+      "data": "Cancelling a Time-Out<div>Once a timeout is set up you can cancel it if you previously saved the value returned from the initial call to <code>setTimeout</code></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "handle = setTimeout(dothis, 5000)\n// with the value \"handle\", you can now cancel the interrupt\nclearTimeout(handle)"
+    },
+    {
+      "type": "text",
+      "data": "Using <code>setInterval</code><div>An easier way to set up regular interrupts is to use the setInterval function. It works in just the same way, except that having popped up after the interval you specify in milliseconds, it will do so again after that interval again passes, and so on forever, unelss you cancel it</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "the time is: <span id='time'>00:00:00</span>\n<script>\nsetInterval(\"showtime(O('time'))\", 1000)\n\nfunction showtime(object){\n  var date = new Date()\n  object.innerHTML = date.toTimeString().substr(0,8)\n}\n</script>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Cancelling an interval</b><div>To stop a repeating interval, when you first set up the interval with a call to the dunction setInterval, you must make a note of the interval’s handle</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "handle = setInterval(\"showtime(O('time))\", 1000)\nclearInterval(handle) // stop the clock\nsetTimeout(\"clearInterval(handle)\", 10000) // set timeout"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

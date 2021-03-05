@@ -1,0 +1,227 @@
+{
+  "title": "Styling",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<span style=\"font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">Styling can be approached in a variety of ways, using traditional scoped classes in CSS or SCSS. Or you can inline styles within the template logic and update them based on state. Or you can create components with styling inherit to them and use this to create template logic like column numbers passed as props.</span><br>"
+    },
+    {
+      "type": "text",
+      "data": "Using imported css files<div>Styles that are available globally can be organised at a component level</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import './App.css';"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": ".App {\n  text-align: center;\n}"
+    },
+    {
+      "type": "text",
+      "data": "Setting CSS as JavaScript"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const styles = {\n    backgroundColor: 'green',\n    color: 'white',\n    font: 'inherit',\n    border: '1px solid blue',\n    padding: '8px',\n    cursor: 'pointer'\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<button style={styles}>Toggle</button>"
+    },
+    {
+      "type": "text",
+      "data": "JavaScript CSS values can be changed within the template dynamically"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "styles.backgroundColor = 'red';"
+    },
+    {
+      "type": "text",
+      "data": "Logic can be used to add or remove classes from a list applied to a element based on criteria of you choosing."
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "// Changes styles based on number of people in the array\nlet persons: [\n    {id: '14887', name: 'George'},\n    {id: '49636', name: 'Klaus-Peter Buchholz'},\n    {id: '45675', name: 'Sonia Palomares Requena'}\n],\nconst classes = []; // Empty class list\nif (persons.length <= 2) {\n    classes.push('red'); // classes = ['red']\n}\nif (persons.length <= 1) {\n    classes.push('bold')  // classes = ['red', 'bold']\n}"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": ".red{\n  color: red;\n}\n.bold{\n  font-weight: bold;\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<button className={classes.join(' ')}>Toggle</button>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Radium</h3><div>A NPM modules which gives access to psudo selectors and media queries<div><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">npm install —save radium</code></div></div><div>Known as a higher order component, injectin extra functionality and supprt extra syntax &amp; features, used on componetns &amp; functional components</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "import Radium from \"radium\";\nclass App extends Component {...}\nexport default Radium(App); // Wraps export component"
+    },
+    {
+      "type": "text",
+      "data": "Applying to Javascrtip CSS"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const styles = {\n    backgroundColor: 'green',\n    color: 'white',\n    font: 'inherit',\n    border: '1px solid blue',\n    padding: '8px',\n    cursor: 'pointer',\n    ':hover': { // Allows for this new syntax\n        backgroundColor: 'lightgreen',\n        color: 'black'\n    }\n}\n// Updating these values\nstyles[':hover'] = {\n    backgroundColor: '#E37171',\n}"
+    },
+    {
+      "type": "text",
+      "data": "Media queries"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const style = {\n    '@media(min-width: 500px)':{\n        \n    }\n}"
+    },
+    {
+      "type": "text",
+      "data": "to use radium in functional components you need to import an additional&nbsp;model called&nbsp;<code>StyleRoot</code> and wrap the return from your apps <code>render()</code> in this element <code>&lt;StyleRoot&gt;&lt;/StyleRoot&gt;</code>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "import Radium, {StyleRoot} from \"radium\";"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "render() {\n    return (\n        <StyleRoot>\n        // Content\n        </StyleRoot>\n  )\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Styled components</h3><div><code>npm install -save styled-components</code></div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "Import styled from ‘styled-components'\nconst Button = styled.button`` // Function Call on styled object uses backticks instead of ()"
+    },
+    {
+      "type": "text",
+      "data": "Tagged templates <code>``</code>​ Create a template literal, a regular JavaScript feature"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const StyledDiv = styled.div`\n      border: 1px solid #eee;\n      box-shadow: 0 2px 3px #ccc;\n      padding: 1rem;\n      text-align: center;\n      @media(min-width:500px){\n          background-color: #E37171;\n      }\n      &:hover{\n          background-color:lightgreen;\n      }\n`\n<StyledDiv></StyledDiv>"
+    },
+    {
+      "type": "text",
+      "data": "Dynamic content"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const  StyledButton = styled.button`\n    background-color: ${props => props.alt ? 'red' : 'green'};\n    color: white;\n    font: inherit;\n    border: 1px solid blue;\n    padding: 8px;\n    cursor: pointer;\n    &:hover{\n        background-color:${props => props.alt ? '#E37171' : 'lightgreen'};\n    }\n`\n<StyledButton alt={this.state.showPersons}</StyledDiv>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>CSS Modules</h3>"
+    },
+    {
+      "type": "text",
+      "data": "This tool alows you to import css classes as JavaScript like properties, to be accessed via it’s classname. WIth CSS modules you can write normal CSS code and ensure that it only applies to a given component. It will generate unique CSS class names for you. And by importing a JS object and assigning classes from there, you use these dynanically generated, unique names. So the imported JS object simply exposes some properties which hold the generated CSS calss names as values."
+    },
+    {
+      "type": "text",
+      "data": "Tip: Should you want to preprocess a stylesheet with Sass then make sure to follow the installation instructions and then change the stylesheet file extension as follows: [name].module.scss or [name].module.sass."
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "import classes from './App.css';"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": ".button {\n    background-color: green;\n    color: white;\n    font: inherit;\n    border: 1px solid blue;\n    padding: 8px;\n    cursor: pointer;\n}\n\n.button:hover {\n    background-color: lightgreen;\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "<button\n    className={classes.button}\n    Toggle Persons\n</button>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Example</b><div>Here,&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">classes.Post</code>&nbsp;refers to an automatically generated&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">Post</code>​ property on the imported&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">classes</code>&nbsp;object. That property will in the end simply hold a value like&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">Post__Post__ah5_1</code>​.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": ".Post {\n    color: red;\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "import classes from './Post.css';\n \nconst post = () => (\n    <div className={classes.Post}>...</div>\n);"
+    },
+    {
+      "type": "text",
+      "data": "<div>So your <code>.Post</code> class automatically tranformed to a different class (<span style=\"font-family: Menlo, Consolas, &quot;Ubuntu Mono&quot;, Monaco, source-code-pro, monospace; font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\"><code>Post__Post__ah5_1</code></span>) which is unique across the application. You also can’t use it accidently in other components because you don’t know the generated string! You can only access it through the <code>classes</code> object. And if you import the <code>CSS</code> file in the same way in another component, the classes object there will hold a <code>Post</code> property which yields a different (!) CSS class name. Hence it’s scoped to a given component.<br></div><div>if you want to define a global CSS class in such a .css file, you can prefix the selector with <code>:global</code></div>"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": ":global .Post { ... } /* use className=\"Post\"  anywhere in your app */"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<br><div></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

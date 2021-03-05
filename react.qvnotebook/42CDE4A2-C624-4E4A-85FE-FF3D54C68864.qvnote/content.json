@@ -1,0 +1,117 @@
+{
+  "title": "JSX",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>The smallest React example looks like this:<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "ReactDOM.render(\n  <h1>Hello, world!</h1>,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "Introducing JSX"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const element = <h1>Hello, world!</h1>;"
+    },
+    {
+      "type": "text",
+      "data": "<div>Embedding Expressions in JSX</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const name = 'Josh Perez';\nconst element = <h1>Hello, {name}</h1>;\n\nReactDOM.render(\n  element,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "<div>You can put any valid JavaScript expression inside the curly braces in JSX. For example, 2 + 2, user.firstName, or formatName(user) are all valid JavaScript expressions.</div><div><br></div><div>In the example below, we embed the result of calling a JavaScript function, formatName(user), into an &lt;h1&gt; element.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "function formatName(user) {\n  return user.firstName + ' ' + user.lastName;\n}\n\nconst user = {\n  firstName: 'Harper',\n  lastName: 'Perez'\n};\n\nconst element = (\n  <h1>\n    Hello, {formatName(user)}!\n  </h1>\n);\n\nReactDOM.render(\n  element,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "You can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions:"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "function getGreeting(user) {\n  if (user) {\n    return <h1>Hello, {formatName(user)}!</h1>;\n  }\n  return <h1>Hello, Stranger.</h1>;\n}"
+    },
+    {
+      "type": "text",
+      "data": "Specifying Attributes with JSX"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const element = <div tabIndex=\"0\"></div>; // Quotes to specify string literals as attributes:\nconst element = <img src={user.avatarUrl}></img>; // Curly braces to embed a JavaScript expression in an attribute:"
+    },
+    {
+      "type": "text",
+      "data": "<div>JSX tags may contain children:</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const element = (\n  <div>\n    <h1>Hello!</h1>\n    <h2>Good to see you here.</h2>\n  </div>\n);"
+    },
+    {
+      "type": "text",
+      "data": "<b>JSX Represents Objects</b><div><b>JSX</b> is <b>NOT HTML</b> but it looks a lot like it. &nbsp;Differences can be seen when looking closely through. JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nester React.createElement(…) calls.</div><div><br><div>Babel compiles JSX down to <code>React.createElement()</code> calls.<br></div></div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const element = (\n  <h1 className=\"greeting\">\n    Hello, world!\n  </h1>\n);\n// These are identical\nconst element = React.createElement(\n  'h1',\n  {className: 'greeting'},\n  'Hello, world!'\n);"
+    },
+    {
+      "type": "text",
+      "data": "<h3>The <code>.map() </code>Function</h3>The most common way to loop through a list of items is to use <code>.map()</code> function"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const animals = [\"Dog\", \"Bird\", \"Cat\", \"Mouse\", \"Horse\"];\n\n<ul>\n  {animals.map((animal, index) => ( // Using a index as key\n      <li key={index}>{animal}</li>\n  ))}\n</ul>"
+    },
+    {
+      "type": "text",
+      "data": "As the rule of thumb, if you have an array that can change, then use a unique id. If it is not available, then create one for each item before the list is rendered. Otherwise, it is ok to use an index for the key attribute."
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const animals = [ // Setting up a unique ID is better if possible\n  { id: 1, animal: \"Dog\" },\n  { id: 2, animal: \"Bird\" },\n  { id: 3, animal: \"Cat\" },\n  { id: 4, animal: \"Mouse\" },\n  { id: 5, animal: \"Horse\" }\n];\n\n<ul>\n  {animals.map(item => (\n    <li key={item.id}>{item.animal}</li>\n  ))}\n</ul>"
+    },
+    {
+      "type": "text",
+      "data": "you can first use a variable to store results of the map and then render content of the variable."
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "  const renderAnimals = animals.map(item => (\n    <li key={item.id}>{item.animal}</li>\n  ));\n\n  return <ul>{renderAnimals}</ul>;"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "let animals = [\n    {id: 1, animal: \"Dog\"},\n    {id: 2, animal: \"Bird\"},\n    {id: 3, animal: \"Cat\"},\n    {id: 4, animal: \"Mouse\"},\n    {id: 5, animal: \"Horse\"}\n];\nlet animalsRender = null\nanimalsRender = (\n    <ul>\n        {\n            animals.map((animal, index) => {\n                    return <li key={animal.id}>{animal.animal}</li>\n                }\n            )\n        }\n    </ul>\n)\n{animalsRender}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

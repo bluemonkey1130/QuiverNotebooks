@@ -1,0 +1,40 @@
+{
+  "title": "Conditionals",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>Using Conditionals</h3><div><a href=\"https://reactjs.org/docs/conditional-rendering.html\">https://reactjs.org/docs/conditional-rendering.html</a><br></div>"
+    },
+    {
+      "type": "text",
+      "data": "In React, you can create distinct component that encapsulate behaviour you need. Then, you can render only some of them, depending on the state of your application.<div>Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like <code>if</code> or the conditional operator to create elements representing the current state, and let React update the UI to match them.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "function UserGreeting(props) {\n  return <h1>Welcome back!</h1>;\n}\n\nfunction GuestGreeting(props) {\n  return <h1>Please sign up.</h1>;\n}\n\nfunction Greeting(props) {\n  const isLoggedIn = props.isLoggedIn;\n  if (isLoggedIn) {\n    return <UserGreeting />;\n  }\n  return <GuestGreeting />;\n}\n\nReactDOM.render(\n  // Try changing to isLoggedIn={true}:\n  <Greeting isLoggedIn={false} />,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Element Variables</h3><div>Your can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn’t change. Consider these two new components representing Logout and Login buttons.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "function LoginButton(props) {\n  return (<button onClick={props.onClick}>Login</button>)\n}\nfunction LogoutButton(props) {\n  return (<button onClick={props.onClick}>Logout</button>)\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "class LoginControl extends React.Component {\n  constructor(props) {\n    super(props);\n    this.handleLoginClick = this.handleLoginClick.bind(this);\n    this.handleLogoutClick = this.handleLogoutClick.bind(this);\n    this.state = {isLoggedIn: false};\n  }\n\n  handleLoginClick() {\n    this.setState({isLoggedIn: true});\n  }\n\n  handleLogoutClick() {\n    this.setState({isLoggedIn: false});\n  }\n\n  render() {\n    const isLoggedIn = this.state.isLoggedIn;\n    let button;\n    if (isLoggedIn) {\n      button = <LogoutButton onClick={this.handleLogoutClick} />;\n    } else {\n      button = <LoginButton onClick={this.handleLoginClick} />;\n    }\n\n    return (\n      <div>\n        <Greeting isLoggedIn={isLoggedIn} />\n        {button}\n      </div>\n    );\n  }\n}\n\nReactDOM.render(\n  <LoginControl />,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

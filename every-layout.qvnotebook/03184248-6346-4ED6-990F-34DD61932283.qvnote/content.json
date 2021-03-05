@@ -1,0 +1,10 @@
+{
+  "title": "The Frame",
+  "cells": [
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".frame {\n  --n: 6;\n  --d: 9;\n  padding-bottom: calc(var(--n) / var(--d) * 100%);\n  position: relative;\n}\n.frame > * {\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.frame > img,\n.frame > video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}"
+    }
+  ]
+}

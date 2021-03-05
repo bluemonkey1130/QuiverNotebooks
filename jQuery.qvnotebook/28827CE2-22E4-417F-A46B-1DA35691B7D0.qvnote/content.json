@@ -1,0 +1,161 @@
+{
+  "title": "Manipulating Elements",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<b>Content Filters</b><div>Get or change content of elements, attributes, text nodes</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".html() // When this method is used to retrieve information from a jQuery selection, it retrieves only the HTML inside the first element in the matched set"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".text() // When this method is used to retrieve the text from a jQuery selection, it returns the content from every element in the jQuery selection, along with the text from any descendants"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".replaceWith() // This method replaces every element in a matched set with new content. It also returns the replaced elements."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".remove() // This method removes all of the elements in the matched set"
+    },
+    {
+      "type": "text",
+      "data": "Elements"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".before() // This method inserts content before the selected element(s)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".after() // This method inserts content after the selected elements"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".prepend() // This method inserts content inside the selected elements(after the opening tag)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".append() // This method inserts content inside the selected elements before the closing tag"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".clone()"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".unwrap()"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".detach()"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".empty()"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".add()"
+    },
+    {
+      "type": "text",
+      "data": "Attributes"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".attr() // This method can get or set a specified attribute and its value. To get the value of an attribute, you specify the name of the attribute in the parentheses"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".removeAttr() // This method removes a specified attribute (and its value). You just specify the name of the attribute that you want to remove from the element in the parentheses"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".addClass() // This method adds a new value to the existing value of the class attribute. It does not overwite existing values"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".removeClass() // This method removes a value from the class attribute, leaving any other class names within that attribute intact"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".css() // Retieve & Set values of CSS properties"
+    },
+    {
+      "type": "text",
+      "data": "Form Elements"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".val()\n.isNumeric()"
+    },
+    {
+      "type": "text",
+      "data": "<b>Finding Elements</b><div>Find and select elements to workwith 7 traverse the DOM</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Selector Required\n.find() // All elements within current selection that match selector\n.closest() // Nearest ancestor (noot just parent) that matches selector\n\n// Selector Optional\n.parent()  // Direct parent of current selection\n.parents() // All parents of current selection\n.children() // All children of current selection\n.siblings() // All siblings of current selection\n.next() // Next sibling of current element\n.nextAll() // All subsequent siblings of current element\n.prev() // Previous sibling of current element\n.prevAll() // All previous siblings of current element"
+    },
+    {
+      "type": "text",
+      "data": "Treversing the DOM<div>These methods are used to access other elements nodes relative to the initial selction</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Filter Test\n.filter()\n.not()\n.has()\n.is()\n:contains()\n\n// Order in Selection\n.eq()\n.lt()\n.gt()"
+    },
+    {
+      "type": "text",
+      "data": "<b>Dimension / Position</b><div>Get or update the dimensions or position of a box</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Dimension\n.height()\n.width()\n.innerHeight()\n.innerWidth()\n.outerHeight()\n.outerWidth()\n$(document).height()\n$(document).width()\n$(window).height()\n$(window).width()\n\n// Position\n.offset()\n.position()\n.scrollLeft()\n.scrollTop()"
+    },
+    {
+      "type": "text",
+      "data": "<b>Effects &amp; Animation</b><div>Add effects and animation to parts of the page</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Basic\n.show()\n.hide()\n.toggle()\n\n// Fading\n.fadein()\n.fadeOut()\n.fadeTo()\n.fadeToggle()\n\n// Sliding\n.slideDown()\n.slideUp()\n.slideToggle()\n\n// Custom\n.delay()\n.stop()\n.animate()"
+    },
+    {
+      "type": "text",
+      "data": "<b>Events</b><div>Create event listeners for each element in the selection</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Document / File\n.ready()\n.load()\n\n// User Interaction\n.on()"
+    }
+  ]
+}

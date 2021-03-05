@@ -1,0 +1,54 @@
+{
+  "title": "List & Keys",
+  "cells": [
+    {
+      "type": "text",
+      "data": "You can build collections of elements and includes them in JSX using <code>{}</code>​ curly braces. Looping through arrays using the JavaScrip <code>map()</code>​&nbsp;"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const numbers = [1, 2, 3, 4, 5];\nconst listItems = numbers.map((number) =>\n  <li>{number}</li>\n);"
+    },
+    {
+      "type": "text",
+      "data": "<h3>A basic list component</h3><div>Ususally you would render lists inside a component, we can refactor the previous example into a component that accepts an array of <code>numbers</code> and outputs a list og elements.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "function NumberList(props) {\n  const numbers = props.numbers;\n  const listItems = numbers.map((number) =>\n    <li>{number}</li>\n  );\n  return (\n    <ul>{listItems}</ul>\n  );\n}\n\nconst numbers = [1, 2, 3, 4, 5];\nReactDOM.render(\n  <NumberList numbers={numbers} />,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "When you run this code, you’ll be given a warning that a key should be provided for list items. A “key” is a special string attribute you need to include when creating lists of elements."
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "    <li key={number.toString()}>\n      {number}\n    </li>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Keys</h3><div>Keys help react to identify which items have changed, are added, or removed. Keys should be given to the elements inside the array to give the elements a stable identity:</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const numbers = [1, 2, 3, 4, 5];\nconst listItems = numbers.map((number) =>\n  <li key={number.toString()}>\n    {number}\n  </li>\n);"
+    },
+    {
+      "type": "text",
+      "data": "The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys:"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "state = {\n  persons: [\n    { id:'14887', name: 'George', age: 32},\n    { id:'49636', name: 'Klaus-Peter Buchholz', age: 12},\n    { id:'45675', name: 'Sonia Palomares Requena', age: 52}\n  ],\n}\nconst people = this.state.persons.map((person, index) => {\n  return <Block key={person.id}>\n    <p>Name: {person.name}</p>\n    <p> Age: {person.age}</p>\n  </Block>\n});"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

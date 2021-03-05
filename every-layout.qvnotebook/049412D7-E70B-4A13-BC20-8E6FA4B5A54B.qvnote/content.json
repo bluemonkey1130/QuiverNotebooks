@@ -1,0 +1,18 @@
+{
+  "title": "Measures & Harmoincs",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>These CSS varibles store harmonic</div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": "// not all custom properties have to be global, but in this case we want\n// our elements, props, and utility classes to agree. Therefore, we place the custom\n// property on the :root element.\n:root {\n  --ratio: 1.5;\n  --s-5: calc(var(--s-4) / var(--ratio));\n  --s-4: calc(var(--s-3) / var(--ratio));\n  --s-3: calc(var(--s-2) / var(--ratio));\n  --s-2: calc(var(--s-1) / var(--ratio));\n  --s-1: calc(var(--s0) / var(--ratio));\n  --s0: 1rem;\n  --s1: calc(var(--s0) * var(--ratio));\n  --s2: calc(var(--s1) * var(--ratio));\n  --s3: calc(var(--s2) * var(--ratio));\n  --s4: calc(var(--s3) * var(--ratio));\n  --s5: calc(var(--s4) * var(--ratio));\n  // Universal Measure\n  --measure: 60ch;\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

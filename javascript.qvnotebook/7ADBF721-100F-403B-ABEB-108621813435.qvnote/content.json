@@ -1,0 +1,162 @@
+{
+  "title": "Objects & Arrays",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><b>Arrays</b></h3><h3><span style=\"font-size: small; font-weight: normal;\">JavaScript are also very similar to those in PHP, in that an array can contain string or numeric data, as well as other arrays. To sign values to an array, use the following syntax:</span></h3>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "arrayname = new Array()\n// Or\narrayname = []"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "toys = ['bat', 'ball', 'whistle', 'puzzle', 'doll']"
+    },
+    {
+      "type": "text",
+      "data": "To create a multidimensional array, nest smaller arrays within a larger one. So, to create a two-dimensional array containing the colors of a single face of a scrambled Rubik’s cube (where the colours red, green, orange, yellow, blue and white are represented by their capitalized initial letters)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "face = \n[\n  ['R', 'G', 'Y'],\n  ['W', 'R', 'O'],\n  ['Y', 'W', 'G']\n]\ndocument.write(face[1][2])\n// OR\nlet costs = [420, 460, 230, 620];\nconsole.log(costs[1]) // 460"
+    },
+    {
+      "type": "text",
+      "data": "Assigning element values<div>In JavaScript you can use the push method to add a new item to an array</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "arrayname.push(\"Element 1\")\narrayname.push(\"Element 2\")"
+    },
+    {
+      "type": "text",
+      "data": "Alternatively, if you wish to keep track of the element locations yourself and place them in specific locations, you can use syntax usch as this:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "arrayname[0].push(\"Element 1\")\narrayname[1].push(\"Element 2\")"
+    },
+    {
+      "type": "text",
+      "data": "This allows you to keep adding items to an array without having to keep track of the number of items. When you need to know how many elements are in an array, you can use the length property, like this:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "console.log(arrayname.length)"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "numbers = []\nnumbers.push(\"One\")\nnumbers.push(\"Two\")\nnumbers.push(\"Three\")\nfor (j = 0 ; j < numbers.length ; ++j)\n  console.log(\"Element \" + j + \" = \" + numbers[j])"
+    },
+    {
+      "type": "text",
+      "data": "<b>Assignment using the array keyword</b><div>You can also create an array together with some initial elements by using the Array keyword, like this:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "numbers = Array(\"One\", \"Two\", \"Three\")"
+    },
+    {
+      "type": "text",
+      "data": "There is nothing stopping you from adding more elements afterwards as well."
+    },
+    {
+      "type": "text",
+      "data": "<b>Associative Arrays</b><div>this is when elements are referenced by name rather than by numeric offset. To create an associative array, define a block of elements within curly braces. For each element, place the key on the left and the contents on the right of a colon(:)</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "balls = {\"golf\": \"Golf balls, 6\",\n  \"tennis\": \"Tennis balls, 3\",\n  \"soccer\": \"Soccer ball, 1\",\n  \"ping\": \"Ping Pong balls, 1 doz\"}\n\nfor (ball in balls)\n  console.log(ball + \" = \" + balls[ball])"
+    },
+    {
+      "type": "text",
+      "data": "<b>Multidimentional Arrays</b><div>To create a mulitdimensional array in JavaScript, just place arrays inside other arrays.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "checkerboard = Array(\n    Array(' ', 'o', ' ', 'o', ' ', 'o', ' ', 'o'),\n    Array('o', ' ', 'o', ' ', 'o', ' ', 'o', ' '),\n    Array(' ', 'o', ' ', 'o', ' ', 'o', ' ', 'o'),\n    Array(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '),\n    Array(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '),\n    Array('O', ' ', 'O', ' ', 'O', ' ', 'O', ' '),\n    Array(' ', 'O', ' ', 'O', ' ', 'O', ' ', 'O'),\n    Array('O', ' ', 'O', ' ', 'O', ' ', 'O', ' '))\n\ndocument.write(\"<pre>\")\n\nfor (j = 0 ; j < 8 ; ++j)\n{\n  for (k = 0 ; k < 8 ; ++k)\n    document.write(checkerboard[j][k] + \" \")\n    \n  document.write(\"<br>\")\n}\n\ndocument.write(\"</pre>\")"
+    },
+    {
+      "type": "text",
+      "data": "<h3><b>Objects are Arrays</b></h3>Arrays are actually a special type of object. They hold a related set of key/value pairs (like all objects), but the key for each value is its index number.&nbsp;"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// An Object: here rooms costs are stored in a object\nlet costs = {\n  room1: 420,\n  room2: 460,\n  room4: 230,\n  room5: 620\n};\nconsole.log(costs.room1) // 420"
+    },
+    {
+      "type": "text",
+      "data": "<h3><b>Arrays of Objects &amp; Objects in Arrays</b></h3><div>You can combine array and objects to create complex data structures:&nbsp;</div><div><ul><li>Arrays can store a series of objects (and remember their order).<br></li><li>Objects can also hold arrays (as values of their properties).</li></ul><div>In an object, ther order in which the properties appear is not important. In an array, the index numbers dictate the order of the properties. You will see more examples of these data structures in Chapter 12.</div></div>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Arrays in an Object</b><div>The property of any object can hold an array.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// An Object\nlet person = {\n  name: \"George\",\n  age: 31,\n  workingDay: [\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\"]\n};\n// To access use\nconsole.log(data.name) // George\nconsole.log(data.age) // 31\nconsole.log(data.workingDay[1]) // Tue"
+    },
+    {
+      "type": "text",
+      "data": "<b>Objects in an Array</b><div>The value of any element in an array can be an object (written using the object literal syntax).</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let people = [\n  {\n    name: \"Daniel King\",\n    age: 46,\n  },\n  {\n    name: \"Colton Fitzgerald MD\",\n    age: 41,\n  },\n  {\n    name: \"Prof. Marcel Heydrich\",\n    age: 32,\n  } \n];\n// To access use\nconsole.log(people[1].age) // 41"
+    },
+    {
+      "type": "text",
+      "data": "<p style=\"margin: 0px 0px 24px; padding: 0px; border: 0px; box-sizing: border-box; max-width: 42rem; color: rgb(51, 51, 51); font-family: Arial, x-locale-body, sans-serif; font-size: 16px; font-variant-ligatures: normal; letter-spacing: -0.04448px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><strong style=\"margin: 0px; padding: 0px; border: 0px;\">Manipulating array</strong></p>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let fruits = ['Apple', 'Banana']\n\n// Loop through array\nfruits.forEach(function(item, index, array) {\n  console.log(item, index)\n})\n\n// Add to the end of an array\nlet newLength = fruits.push('Orange')\n\n// Remove from the end of an array\nlet last = fruits.pop() \n\n// Remove from the start of an array\nlet first = fruits.shift() \n\n// Add to the start of an array\nlet newLength = fruits.unshift('Strawberry') \n\n// Find the index of an item in the Array\nlet pos = fruits.indexOf('Banana')\n\n//Remove an item by index position\nlet removedItem = fruits.splice(pos, 1)"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Destructuring</h3><div>This allows you to easily access the values of arrays or objects and asign them to variables.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Array\nconst array = [1, 2, 3]\nconst [a, b] = array;\nconsole.log(a) // Prints 1\nconsole.log(b) // Prints 2\nconsole.log(array) // Prints [1, 2, 3]"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Object\nconst myObj = {\n  name: 'George',\n  age: 28\n}\nconst {name} = myObj;\nconsole.log(name) // Prints George\nconsole.log(age) // Prints Undefined\nconsole.log(myObj) // Prints {name: 'George', age: 31}"
+    },
+    {
+      "type": "text",
+      "data": "Destructureing is very useful when working with function arguments."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const printName = (personObj) => { \n  console.log(personObj.name);\n}\n// or\nconst printName = ({name}) => { // only grabs the name\n  console.log(name);\n}\n\nprintName({name: 'George', age: 31})"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

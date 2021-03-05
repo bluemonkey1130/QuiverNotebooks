@@ -1,0 +1,134 @@
+{
+  "title": "Components and Props",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Components are the <b>Core building block of React apps.</b>&nbsp;React really is just a library for creating components in its core. Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.&nbsp;<div><br></div><div>A typical React app could be depicted as a <b>&nbsp;component tree</b></div><div><b><br></b></div><div><img src=\"quiver-image-url/32A0349D9B0FAD2ADE49F39FF871F38E.png\" alt=\"Screenshot 2020-11-19 at 14.21.29.png\" width=\"1012\" height=\"596\"></div><div><br></div><div>Each component needs to return/render some <b>JSX </b>&nbsp;code - it defines which HTML code React should render to the DOM in the end. When creating components, you have the choice between two different ways:</div><div><ul><li><b>Functional components </b>(presentational, dumb or stateless components)</li><ul><li><code>const cmp = () =&gt; { return &lt;div&gt;Some JSX&lt;/div&gt; }</code></li></ul><li><b>Class based components</b> (Containers, smart or stateful)<br></li><ul><li><code>class Cmp extends Component { render() { return &lt;div&gt;Some JSX&lt;/div&gt;}}</code></li></ul></ul></div><div><div><h3>Function and Class Components</h3><div>The simplest way to define a component is to write a JavaScript function:</div></div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}"
+    },
+    {
+      "type": "text",
+      "data": "These two components are equivalent from React’s point of view."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Welcome extends React.Component {\n  render() {\n    return <h1>Hello, {this.props.name}</h1>;\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Rendering a Component</h3><div>Previously, we only encountered React elements that represent DOM tags:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const element = <div />"
+    },
+    {
+      "type": "text",
+      "data": "However, elements can only represent user-defined components"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const element = <Welcome name=\"Sara\" />;"
+    },
+    {
+      "type": "text",
+      "data": "When react sees an element representing a user defined component, it passes JSX attributes and children to this components as a single object. We call this object “props\""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function Welcome(props) {\n  return <h1>Hello, {props.name}</h1 // 3 Our Welcome component returns a <h1>Hello, Sara</h1> element as the result.\n}\nconst element = <welcome name=\"Sara\" />; // 2 Calls the Welcome component with {name: 'Sara'} as the props.\nReactDom.render( // 1 We call ReactDOM.render() with the <Welcome name=\"Sara\" /> element.\n  element,\n  document.getElementById('root') // 4 React DOM efficiently updates the DOM to match <h1>Hello, Sara</h1>.\n);"
+    },
+    {
+      "type": "text",
+      "data": "<b>Creating a Functional Component&nbsp;</b><div><ul><li>Create new folder, use&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">Name</code>&nbsp;capitalisation for components</li><ol><li>Inside the folder create&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">Name.js</code>​</li><li><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">import React from 'react’;</code>​</li><li><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">const name = () =&gt; {…}</code><br></li><li><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">export default name;</code></li></ol></ul><div><b>Using a Functional Component</b><br></div></div><div><ul><li><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">import Person from ‘./Name/Name’;</code><br></li><li><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">​</code>​Use the tag<code>&nbsp;&lt;Name /&gt;</code><code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\"></code></li></ul></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "import React from 'react';\n\nconst person = () => {\n    return <p>name</p>\n}\nexport default Person; // <Name />"
+    },
+    {
+      "type": "text",
+      "data": "<b>Passing data using <code>props</code></b><div><code>props</code> is the standard object name to retrieve attributes in the tags</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const person = (props) => {\n    return (\n        <div>\n            <p>I'm {props.name} and i am {Math.floor(Math.random() * 30)} years old</p>\n\n        </div>\n    );\n}\nexport default Person; // <Person name=\"George\" />"
+    },
+    {
+      "type": "text",
+      "data": "Passing data in class-based components, uses <code>this.props</code>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Person extends Component {\n  render (){\n    return <p>My Name is {this.props}</p>;\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": "Extra data within the custom tags is accessed via&nbsp;<code>props.children</code>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<Person>My Hobbies: Racing</Person>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Composing Components</h3><div>Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button a form a dialog, a screen: in react apps, all those are commonly expressed as components.</div><div><br></div><div>For example, we can create an App component that renders Welcome many times:<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n\nfunction App() {\n  return (\n    <div>\n      <Welcome name=\"Sara\" />\n      <Welcome name=\"Cahal\" />\n      <Welcome name=\"Edite\" />\n    </div>\n  );\n}\n\nReactDOM.render(\n  <App />,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "Typically, new React apps have a single App component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like Button and gradually work your way to the top of the view hierarchy."
+    },
+    {
+      "type": "text",
+      "data": "<h3>Extracting Components</h3><div>Don’t be afraid to split components into smaller components. For example, consider this <code>Comment</code> component:</div><div><a href=\"https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components\">https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components</a><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function formatDate(date) {\n  return date.toLocaleDateString();\n}\n\nfunction Comment(props) {\n  return (\n    <div className=\"Comment\">\n      <div className=\"UserInfo\">\n        <img\n          className=\"Avatar\"\n          src={props.author.avatarUrl}\n          alt={props.author.name}\n        />\n        <div className=\"UserInfo-name\">\n          {props.author.name}\n        </div>\n      </div>\n      <div className=\"Comment-text\">{props.text}</div>\n      <div className=\"Comment-date\">\n        {formatDate(props.date)}\n      </div>\n    </div>\n  );\n}"
+    },
+    {
+      "type": "text",
+      "data": "<div>This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let’s extract a few components from it. Don’t be afraid to split components into smaller components:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function formatDate(date) {\n  return date.toLocaleDateString();\n}\n\nfunction Avatar(props) { // First, we will extract Avatar:\n  return (\n    <img\n      className=\"Avatar\"\n      src={props.user.avatarUrl}\n      alt={props.user.name}\n    />\n  );\n}\n\nfunction UserInfo(props) { // Renders an Avatar next to the user’s name:\n  return (\n    <div className=\"UserInfo\">\n      <Avatar user={props.user} />\n      <div className=\"UserInfo-name\">{props.user.name}</div>\n    </div>\n  );\n}\n\nfunction Comment(props) {\n  return (\n    <div className=\"Comment\">\n      <UserInfo user={props.author} />\n      <div className=\"Comment-text\">{props.text}</div>\n      <div className=\"Comment-date\">\n        {formatDate(props.date)}\n      </div>\n    </div>\n  );\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const comment = {\n  date: new Date(),\n  text: 'I hope you enjoy learning React!',\n  author: {\n    name: 'Hello Kitty',\n    avatarUrl: 'https://placekitten.com/g/64/64',\n  },\n};\nReactDOM.render(\n  <Comment\n    date={comment.date}\n    text={comment.text}\n    author={comment.author}\n  />,\n  document.getElementById('root')\n);"
+    },
+    {
+      "type": "text",
+      "data": "Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be extracted to a separate component."
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

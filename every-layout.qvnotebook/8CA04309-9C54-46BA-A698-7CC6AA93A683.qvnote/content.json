@@ -1,0 +1,19 @@
+{
+  "title": "The Box",
+  "cells": [
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "box-l {\n  display: block;\n  padding: var(--s1);\n  border-width: var(--border-thin);\n  /* ↓ For high contrast mode */\n  outline: var(--border-thin) solid transparent;\n  outline-offset: calc(var(--border-thin) * -1);\n}"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": ".box {\r/* ↓ Padding set to the first point on the modular scale */\rpadding: var(--s1);\r/* ↓ Assumes you have a --border-thin var */\rborder: var(--border-thin) solid;\r/* ↓ Always apply the transparent outline, for high contrast mode */\routline: var(--border-thin) transparent;\routline-offset: calc(var(--border-thin) * -1);\r/* ↓ The light and dark color vars */\r--color-light: #fff;\r--color-dark: #000;\rcolor: var(--color-dark);\rbackground-color: var(--color-light);\r}\r.box * {\r/* ↓ Force colors to inherit from the parent\rand honor inversion (below) */\rcolor: inherit;\r}\r.box.invert {\r/* ↓ The color vars inverted */\rcolor: var(--color-light);\rbackground-color: var(--color-dark);\r}"
+    }
+  ]
+}

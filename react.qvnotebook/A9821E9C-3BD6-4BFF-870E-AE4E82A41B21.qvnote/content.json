@@ -1,0 +1,60 @@
+{
+  "title": "Events",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div><b>React normalizes events so that they have consistent properties across different browsers.</b><br></div>The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append Capture to the event name; for example, instead of using onClick, you would use onClickCapture to handle the click event in the capture phase<div><a href=\"https://reactjs.org/docs/events.html#supported-events\">https://reactjs.org/docs/events.html#supported-events</a></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Clipboard Events\n  //Event Names\n  onCopy onCut OnPaste\n  // Properties\n  DOMDataTransfer clipboardData\n\n//Composition Events\n  // Event Names\n  onCompositionEnd onCompositionStart onCompositionUpdate\n  // Properties\n  string data\n\n// Keyboard Events\n  // Event Names\n  onKeyDown onKeyPress onKeyUp\n  // Properties\n  boolean altKey\n  number charCode\n  boolean ctrlKey\n  boolean getModifierState(key)\n  string key\n  number keyCode\n  string locale\n  number location\n  boolean metakey\n  boolean repeat\n  boolean shiftKey\n  number which\n  \n// Focus Events\n// These work on all elements in React DOM, not just forms\n  // Event Names\n  onFocus onBlur\n  // Properties\n  DOMEventTarget relatedTarget\n  \n// Form Events\n  // Event names\n  onchange onInput onInvalid onSubmit\n  \n// Mouse Events\n  // Event Names\n  onClick onContextMenu onDoubleClick onDrag onDragend onDragenter onDragExit onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver onMouseUp\n  // Properties\n  boolean altKey\n  number button\n  number buttons\n  number clientX\n  number clientY\n  boolean ctrlKey\n  boolean getModifierState(key)\n  boolean metaKey\n  number pageX\n  number pageY\n  DOMEventTarget relatedTarget\n  number screenX\n  number screenY\n  boolean shiftKey\n  \n// Selection Events\n  // Event names\n  onSelect\n  \n//Touch Events\n  //Event Names\n  onTouchCancel onTouchEnd onTouchMove onTouchStart\n  // Properties\n  boolean altKey\n  DOMTouchList changedTouches\n  boolean ctrlKey\n  boolean getModifierState(key)\n  boolean metaKey\n  boolean shiftKey\n  DOMTouchList targetTouches\n  DOMTouchList touches\n  \n// UI Events\n  // Event Names\n  onScroll\n  // Properties\n  number detail\n  DOMAbstractView view\n  \n// Wheel Events\n  // Event Names\n  onWheel\n  // Properties\n  number deltaMode\n  number deltaX\n  number deltaY\n  mumber deltaZ\n  \n//Media Events\n  // Event Names\n  onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted onError onLoadData onLoadMetadata onLoadsStart onPause onPlay onPlaying onProgress onrateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChnage onWaiting\n  \n// Image Events\n  // Event Names\n  onLoads onError\n\n// Animation Events\n  // Event Names\n  onAnimationStart\n  onAnimationEnd\n  onAnimationIteration\n  "
+    },
+    {
+      "type": "text",
+      "data": "<b>ways of using onClick events,</b><div>Using a handler element, we can pass it asa property of a componetn so other componets have acess to the event handler</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "switchNameHandler = (newName) => {\n    this.setState({\n        persons: [\n            {name: newName}, // Set passed data to property value\n        ]\n    })\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<button onClick={()=> this.switchNameHandler('GEORGE')}></button // Arrow funciton\n<Person click={this.switchNameHandler.bind(this, 'George!')}>/></Person> // Use  the bind if you can"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<p onClick={props.click}>I'm {props.name}</p> // This can be used in the compoent"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Two way Binding</h3><div>Handling change, using vlaue of props we can establish a two way binding, using the onchange listener event an passing the event data to a function that dynaimcallly updates the name state value</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<input type=\"text\" onChange={props.changed} value={props.name}/> // Value set to props name, listener onChange"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<Person changed = {this.nameChangedHandler}>My Hobbies: Golf</Person>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "nameChangedHandler = (event) =>{\n    this.setState({\n        persons: [\n            {name: 'George', age: 32},\n            {name:  event.target.value, age: 12},\n            {name: 'Sonia Palomares Requena', age: 27}\n        ]\n    })\n}"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

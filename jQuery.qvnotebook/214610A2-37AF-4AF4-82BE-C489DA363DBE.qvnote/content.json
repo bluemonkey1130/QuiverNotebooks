@@ -1,0 +1,92 @@
+{
+  "title": "Working with the DOM",
+  "cells": [
+    {
+      "type": "text",
+      "data": "jQuery’s <code>.ready()</code> methods checks that the page is ready for your code to work."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(document).ready(function() {\n  // Script goes here\n});"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  // Shorter Version\n})"
+    },
+    {
+      "type": "text",
+      "data": "<b>Getting at content</b><div>Variations on how the <code>.html()</code> and.<code>text()</code> methods are used on the same list (depending on whether <code>&lt;ul&gt;</code> or <code>&lt;li&gt;</code> elements are used in the selector).</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var $listHTML = $('ul').html(); // Gets all the HTML inside th ul\n$('ul').append($listHTML); // This is appended to the end of the existing <li>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var $listText = $('ul').text(); // Gets the text from all of the <ul> element's children\n$('ul').append('<p>' + $listText + '</p>'); // Appended to the end of the selection"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var $listItemHTML = $('li').html(); // Selects all <li>, .html() gets just the first \n$('li').append('<i>' + $listItemHTML + '</i>'); // Appends to each <li>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var $listItemText = $('li').text(); // Returns all <li>'s' , the .text() gets all text\n$('li').append('<i>' + $listItemText + '</i>'); // This is appended to each of the <li>'s"
+    },
+    {
+      "type": "text",
+      "data": "Changing content"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  $('li:contains(\"pine\")').text('almonds'); // Selects list items that contain the word pine\n  $('li.hot').html(function(){ // Selects all list items with the class 'hot'\n    return '<em>' + $(this).text() + '</em>'; // Update each of them\n  });\n  $('li#one').remove(); // Removes the <li> with #one\n});"
+    },
+    {
+      "type": "text",
+      "data": "Inserting elements"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function(){ \n  $('ul').before('<p class=\"notice\">Just updated</p>'); // Insert new content before\n  $('li.hot').prepend('+ '); // Add content inside opening tag\n  var $newListItem = $('<li><em>glutem-free</em> soy sauce</li>'); // New element created\n  $('li:last').after($newListItem); // Added after the closing tag\n})"
+    },
+    {
+      "type": "text",
+      "data": "Working with attributes"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function() {\n  $('li#three').removeClass('hot'); // Removes class from third item\n  $('li.hot').addClass('favorite'); // Add class to selection\n  $('ul').attr('id', 'group'); // Adds a id attribute to the <ul>\n})"
+    },
+    {
+      "type": "text",
+      "data": "Changing CSS rules"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var backgroundColor = $(‘li).css('background-color'); // Get the CSS value\n$('li').css('background-color', '#272727'); // Set a CSS value\n$('li').css('padding-left', '+=20'); // Increase by 20px\n$('li').css({\n  'background-color': '#272727', // Use a colon for multiple values\n  'font-family': 'Courier'\n});"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$(function(){\n  var backgroundColor = $('li').css('background-color');\n  $('ul').append('<p>Color was: ' + backgroundColor + '</p>');\n  $('li').css({\n    'background-color': '#c5a996',\n    'border': '1px solid #fff',\n    'color': '#000',\n    'font-family': 'Georgia',\n    'padding-left': '+=75'\n  });\n});"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    }
+  ]
+}

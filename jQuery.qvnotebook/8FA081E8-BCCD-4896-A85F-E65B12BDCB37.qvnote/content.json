@@ -1,0 +1,41 @@
+{
+  "title": "Looping & Chaining",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div><b>Looping</b></div>In plain JavaScript, if you wanted to do the same thing to several elements, you would need to write code to loop through all of the elements you selected. With jQuery, when a selector returns multiple elements, you can update all of them using the one method. There is no need to use a loop."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('li em').addClass('seasonal');\n$('li.hot').addClass('favorite');"
+    },
+    {
+      "type": "text",
+      "data": "<b>Chaining</b><div>if you want to use more than one jQuery method on the same selection of elements, you can list several methods at a time using dot notation to separate each one. In this one statement, three methods act on the same selection of elements: <code>hide()</code> hides the elements <code>delay()</code> creates a pause <code>fadeIn()</code> fades in the elements</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('li[id!=\"one\"]')\n  .hide()\n  .delay(500)\n  .fadeIn(1400);"
+    },
+    {
+      "type": "text",
+      "data": "<b>Working with each element in a selection</b><div>jQuery allows you to recreate the functionality of a loop on a selection of elements, using the <code>.each()</code> method. This is usfeul if you want to get inforamtion from each element in the matched set, or perform a series of actions on each of the elements.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".each() // Allows you to perform one or more statements on each of the items in the selection of elements that is returned by a selector - rather like a loop in JavaScript\nthis or $(this) // As the .each() method goes through the elements in a selection, you can access the current element using the this keyword"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "$('li').each(function(){\n  var ids = this.id;\n  $(this).append(' <em class=\"order\">' + ids + '</em>');\n});"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

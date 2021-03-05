@@ -1,0 +1,67 @@
+{
+  "title": "State and Lifecycle",
+  "cells": [
+    {
+      "type": "text",
+      "data": "State allows you store data that if it is changed it willl trigger the DOM to re-render."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class App extends Component {\n    state = {\n        persons: [\n            { name: 'George', age: 32  },\n            { name: 'Klaus-Peter Buchholz', age: 12  },\n            { name: 'Sonia Palomares Requena', age: 52  }\n        ]\n    }\n    render() {\n        return (\n            <Person \n              name={this.state.persons[0].name} \n              age={this.state.persons[0].age} \n            />\n        );\n    }\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const person = (props) => {\n    return (\n        <div>\n            <p>I'm {props.name} & I'm {props.age}</p>\n        </div>\n    );\n}"
+    },
+    {
+      "type": "text",
+      "data": "Classes have properties, which are like varibles but you can create them more easily in a class, i.e without using a var or let or const. In a class that extends class based Components we have a state property. Hooks can be used in function components"
+    },
+    {
+      "type": "text",
+      "data": "<b>On click event handler</b><div>Naming convention for methods that handle events are commonly called ….Handler. THis indicates thatt eh method is not activly ebing called but is handling events.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "switchNameHandler = () => { // Property holds a function\n    console.log('was clicked')\n}\n\n<button onClick={this.switchNameHandler}>Switch Name</button>\n// Leaving out the () after a function call will call when clicked not on load. This is a reference to this function"
+    },
+    {
+      "type": "text",
+      "data": "<code>setState</code>&nbsp;<div>This is a reserved property name and can only be set in class based components</div><div><a href=\"https://www.debuggr.io/react-setstate-is-not-a-function/\">https://www.debuggr.io/react-setstate-is-not-a-function/</a><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "state = { submitted: false } // Any data"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "someMethod() { this.setState({ submitted: true }) } // Mutate state trigger re-render"
+    },
+    {
+      "type": "text",
+      "data": "This can be used within a event hanbdler to trigger a change in the state. React re-renders the DOM when <code>props</code> or <code>state</code> change."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "switchNameHandler = () => {\n    // Dont do: this.state.persons[1].name = \"George\"\n    this.setState({\n        persons:[\n            {name: 'George Hawthorne', age: 32},\n            {name: 'Klaus-Peter Buchholz', age: 12},\n            {name: 'Sonia Palomares Requena', age: 27}\n        ]\n    })\n}\n<button onClick={this.switchNameHandler}>Switch Name</button>"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

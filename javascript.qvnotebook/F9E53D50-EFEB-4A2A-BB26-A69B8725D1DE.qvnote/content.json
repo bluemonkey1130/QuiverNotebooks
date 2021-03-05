@@ -1,0 +1,127 @@
+{
+  "title": "Array Methods",
+  "cells": [
+    {
+      "type": "text",
+      "data": "An array is a a kind of object. All arrays have the methods listed below; thier property names are index numbers. You will often see arrays used to store complex data(including other objects). Each item in an array is somtimes called a element. It does not mean that the array holds HTML elements; element is just the name given to the pieces of information in the array."
+    },
+    {
+      "type": "text",
+      "data": "<h3>Methods</h3>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Adding Items\npush() // Adds one or mores items to END of array and returns number of items in it\nunshift() // Adds one or more items to START of array and returns new length of it\n\n// Removing Items\npop() // Removes last element from array (and returns the element)\nshift() // removes first element from array (and returns the element)\n\n// Iterating\nforEach() // Executes a function once for each element in array\nsome()  // Checks is some elements in array pass a test specified by a function\nevery() // Checks if all elements in array pass a test specified by a function\n\n// Combining\nconcat() // Creats a new array containing this array and other arrays/values\n\n// Filtering\nfilter() // Creates new array with elements that pass a test specified by a function\n\n// Reordering\nsort() // reorders items in array using a function (called a compare function)\nreverse() // Reverses order of items in array\n\n// Modifying\nmap() // Calls a function on each element in array & Creates a new array with results"
+    },
+    {
+      "type": "text",
+      "data": "<h3>jQuery methods for filtering &amp; sorting</h3><div>jQuery collections are array-like objects representing DOM elements. They have similar methods to an array for modifying the elements. You can use other jQuery methods on the selection once they have run.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Adding or combining items\n.add() // Adding or combining items\n\n// Removing items\n.not() // Removes elements from a set of matched elements\n\n// Iterating\n.each() // Applies same function to each element in each matched set\n\n// Filtering\n.filter() // Reduces number of elements in matched set to thoese that either match a selector or pass a test specified by a function\n\n// Converting\n.toArray() // Converts a jQuery collection to an array of DOM elements, enabling the use of the array methods shown above"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Using Array Methods</h3><div>Given the power of arrays, JavaScript comes ready-made with a number of methods gor manipulating them and their data</div>"
+    },
+    {
+      "type": "text",
+      "data": "<code>concat</code> - the concat method concatenates two arrays, or a series of values within and array. For example, the following code outputs <b>Banana</b>, <b>Grape</b>, <b>Carrot</b>, <b>Cabbage</b>."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "fruit = [\"Banana\", \"Grape\"]\nveg = [\"Carrot\", \"Cabbage\"]\nconsole.log(fruit.concat(veg))"
+    },
+    {
+      "type": "text",
+      "data": "A alternative method"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "pets = [\"Cat\", \"Dog\", \"Fish\"]\nmore_pets = pets.concat(\"Rabbit\", Hamster)\nconsole.log(more_pets)"
+    },
+    {
+      "type": "text",
+      "data": "<code>forEach</code> - the forEach method in JavaScript is another way of achieving functionality wimilar to the PHP foreach keyword, but only for browsers other than Internet Explorer. To use it, you pass it the name of a function, which will be called for each element within the array"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "pets = [\"Cat\", \"Dog\", \"Rabbit\", \"Hamster\"]\npets.forEach(output)\n\nfunction output(element, index, array){\n  console.log(\"Element at index \" + index + \" has the value \" + element)\n}"
+    },
+    {
+      "type": "text",
+      "data": "<code>join</code> - With the join method, you can convert all the values in an array to strings and then join them together into one large string, placing an optional separator between them."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "pets = [\"Cat\", \"Dog\", \"Rabbit\", \"Hamster\"]\n\nconsole.log(pets.join('')) // \"CatDogRabbitHamster\"\nconsole.log(pets.join(', ')) // \"Cat, Dog, Rabbit, Hamster\"\nconsole.log(pets.join(' : ')) // \"Cat : Dog : Rabbit : Hamster\""
+    },
+    {
+      "type": "text",
+      "data": "<code>push</code> and <code>pop</code> - push inserts into an array and pop deletes the most recently inserted element and returns it."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "sports = [\"Football\", \"Tennis\", \"Baseball\"]\nconsole.log(\"Start = \" + sports) // \"Start = Football,Tennis,Baseball\"\n\nsports.push(\"Hockey\")\nconsole.log(\"After Push = \" + sports) // \"After Push = Football,Tennis,Baseball,Hockey\"\n\nremoved = sports.pop()\nconsole.log(\"After Pop = \" + sports) // \"After Pop = Football,Tennis,Baseball\"\nconsole.log(\"Removed = \" + removed) // \"Removed = Hockey\""
+    },
+    {
+      "type": "text",
+      "data": "Using push and pop inside and outside of a loop"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "numbers = []\nfor (j = 0 ; j < 3 ; ++j){\n  numbers.push(j)\n  console.log(\"Pushed \" + j)\n}\nconsole.log(\"Popped \" + numbers.pop())\nconsole.log(\"Popped \" + numbers.pop())\nconsole.log(\"Popped \" + numbers.pop())"
+    },
+    {
+      "type": "text",
+      "data": "Using <code>reverse</code> - the reverse method simply reverses the order of all elements in an array"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "sports = [\"Football\", \"Tennis\", \"Baseball\", \"Hockey\"]\nsports.reverse()\nconsole.log(sports) // [\"Hockey\", \"Baseball\", \"Tennis\", \"Football\"]"
+    },
+    {
+      "type": "text",
+      "data": "Using <code>sort</code> you can place all elements of an array in alphabetical or other order, depending on the parameters used."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Alphabetical sort\nsports = [\"Footbal\", \"Tennis\", \"Baseball\", \"Hockey\"]\nsports.sort()\nconsole.log(sports) // [\"Baseball\", \"Footbal\", \"Hockey\", \"Tennis\"]\n\n// Reverse alphabetical sort\nsports = [\"Footbal\", \"Tennis\", \"Baseball\", \"Hockey\"]\nsports.sort().reverse()\nconsole.log(sports) // [\"Tennis\", \"Hockey\", \"Footbal\", \"Baseball\"]\n\n// Ascending numberic sort\nnumber = [7, 23, 6, 74]\nnumbers.sort(function(a,b){return a - b}) // [6, 7, 23, 74]\n\n// Descending numberic sort\nnumber = [7, 23, 6, 74]\nnumbers.sort(function(a,b){return b - a}) // [74, 23, 7, 6]"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

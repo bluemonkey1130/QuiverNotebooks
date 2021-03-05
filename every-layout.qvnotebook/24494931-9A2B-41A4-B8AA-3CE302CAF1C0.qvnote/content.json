@@ -1,0 +1,23 @@
+{
+  "title": "Max Width",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>Fixed widths (and heights!) are anathema to responsive design, Instead, we should deal in . The&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">max-width()</code>​&nbsp;property, for example, tolerates any length of text a certain value. An exception based approach is smarter, since we only have to remember which elements should be subject to the rule.<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": "* {\n  max-width: var(--measure);\n}\nhtml,\nbody,\ndiv,\nheader,\nnav,\nmain,\nsection,\nfooter {\n  max-width: none; // EXCEPTION BASED RULE\n}"
+    },
+    {
+      "type": "text",
+      "data": "<h3>A Utility Class</h3>"
+    },
+    {
+      "type": "code",
+      "language": "scss",
+      "data": ".max-width\\:measure {\rmax-width: var(--measure);\r}\r.max-width\\:measure\\/2 {\rmax-width: calc(var(--measure) / 2);\r}"
+    }
+  ]
+}

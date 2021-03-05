@@ -1,0 +1,72 @@
+{
+  "title": "Javascript Classes",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>Classes</h3><div>Blueprints for objects</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Person {\n  name = 'George' // Property (variable)\n  call = () => {..} // Method (function)\n}"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Create the Javascript Object from the Class\nconst myPerson = new Person()\n\nmyPerson.call()\nconsole.log(myPerson.name)"
+    },
+    {
+      "type": "text",
+      "data": "A basic class called <b>person (OLD SYNTAX)</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Person {\n  constructor(){\n    this.name = 'George';\n  }\n  printMyName(){\n    console.log(this.name);\n  }\n}\nconst person  = new Person();\nperson.printMyName();"
+    },
+    {
+      "type": "text",
+      "data": "A class called <b>Person</b> which inherits from a class called <b>Human&nbsp;</b><b>(OLD SYNTAX)</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Human{\n  constructor(){ // ES6 older syntax\n    this.gender = 'Male'; \n  }\n  printGender(){\n    console.log(this.gender);\n  }\n}\nclass Person extends Human{ // Keyword \"extends\"\n  constructor(){\n    super(); // Required to execute parent constructor \n    this.name = 'George';\n  }\n  printMyName(){\n    console.log(this.name);\n  }\n}\nconst person  = new Person();\nperson.printMyName();\nperson.printGender(); // Call inherited method "
+    },
+    {
+      "type": "text",
+      "data": "<h3>Newer ES6 Synax</h3>Newer ES6 syntax allows us to simplify the way we set <b>Properties</b> &amp; <b>Methods</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Properties\nconstructor(){ // ES6 older syntax\n  this.myProperty = 'Value'; \n}\nmyProperty = 'Value'; // ES7 Newer syntax"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Methods\nmyMethod(){..} // ES6 older syntax\n\nmyMethod = () => {..} // ES7 Newer syntax arrow function has no issues with \"this\" keyword"
+    },
+    {
+      "type": "text",
+      "data": "A class called&nbsp;<b>Person</b>&nbsp;which inherits from a class called&nbsp;<b>Human&nbsp;</b><b>(NEW SYNTAX)</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "class Human{\n  gender = 'undefinded'; // Remove constructor & reference to \"this\"\n  printGender = () => {\n    console.log(this.gender); // Keep using \"this\"reference\n  }\n}\n\nclass Person extends Human{\n  name = 'George';\n  gender = 'Male'; // Update inherited properties\n  printMyName = () => {\n    console.log(this.name);\n  }\n}\nconst person  = new Person();\nperson.printMyName();\nperson.printGender();"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

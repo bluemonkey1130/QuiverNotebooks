@@ -1,0 +1,89 @@
+{
+  "title": "Regular Expression",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Supported by both JavaScript and PHP. They make is possible to construct the most powerful of pattern-matching algorithms within a single expression.<h3>Matching through meta characters</h3><div>Every regular expression must be enclosed in slashes. Within these slashes, certain characters have special meaning; they are called&nbsp;<i>meta characters.</i>&nbsp;</div><div><br></div><div>An asterisk(*) means “the text you’re trying to match may have any numver of proceeding characters - or non at all”</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "The   difficult   of     classifying Le     Guins     work\n// To match LeGuin, as well as Le an Guin seperated by any number of spaces\n// Follow a space with an asterisk\n/Le *Guin/"
+    },
+    {
+      "type": "text",
+      "data": "The plus sign (+) &nbsp;requires at least one of the preceding characters to be present:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/Le +Guin/"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Fuzzy Character Matching</h3><div>The dot (.) is particularly useful, because it can match anything except except a newline. Suppose that you are looking for HTML tags, which start with &lt; and end with &gt;.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/<.*>/"
+    },
+    {
+      "type": "text",
+      "data": "The dot matches any character, and the * expands it to match zero or more characters, so this is saying: “Match anything that lies between &lt; and &gt;, even if there’s nothing” You will match &lt;&gt;, &lt;em&gt;, &lt;br&gt; and so on. But if you don’t want to match the empty case, &lt;&gt;, you should use + instead of *,&nbsp;"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "/<.+>/"
+    },
+    {
+      "type": "text",
+      "data": "The plus sign expands the dot to match one or more characters, saying “Match anything that lies between &lt; and &gt; as long as there’s at least one character between them”. You will match &lt;em&gt; and &lt;/em&gt;, &lt;h1&gt; &lt;/h1&gt;, and tags with attributes, such as this:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<a href=\"www.mozilla.org\">"
+    },
+    {
+      "type": "text",
+      "data": "The plus sign keeps on matching up to the last &gt; on the line, so you might end up with this:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "<h1><b>Introduction</b></h1>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Using regular expressions in JavaScript</h3><div>Used mostly for two things, test &amp; replace. Whereas test just tells you whether its argument matches the regular expression, replace takes a second parameter: the string to replace the text that matches. Like mast functions, replace generates a new string as a return value; it does change the input.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "string = /cats/i.test(\"Cats are funny. I like cats\")\nconsole.log(string) // true"
+    },
+    {
+      "type": "text",
+      "data": "The next statement replaces both occurrences of the word cats with the word <i>dogs</i>, printing the result. The search has to be global <code>(/g)</code> to find all occurrences, and case-insensitive <code>(/i)</code> to find the capitalised <i>Cats.</i>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "string = \"Cats are freindly. I like cats.\".replace(/cats/gi, \"dogs\")\nconsole.log(string) // \"dogs are freindly. I like dogs.\""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

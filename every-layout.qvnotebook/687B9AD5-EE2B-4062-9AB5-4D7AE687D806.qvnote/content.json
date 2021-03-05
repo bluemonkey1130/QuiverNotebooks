@@ -1,0 +1,19 @@
+{
+  "title": "Mixing CSS and JavaScript",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>JavaScript consumes CSS custom properties like JSON properties. You can think of global custom properties as configurations shared by CSS and JavaScript.</div>"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "const rootStyles = getComputedStyle(document.documentElement);\nconst scale3 = rootStyles.getPropertyValue('--s3');\n\nthis.shadowRoot.innerHTML = `\n  <style>\n    :host {\n      padding: var(--s3);\n    }\n  </style>\n  <slot></slot>\n`;"
+    },
+    {
+      "type": "code",
+      "language": "jsx",
+      "data": "<my-element padding=\"var(--s3)\">\n  <!-- Light DOM contents -->\n</my-element>"
+    }
+  ]
+}

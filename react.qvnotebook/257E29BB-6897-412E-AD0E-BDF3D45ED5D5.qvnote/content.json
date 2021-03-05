@@ -1,0 +1,104 @@
+{
+  "title": "ES6 JavaScript",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>Varibles: <b>Let</b> &amp; <b>Const</b></h3><div>These are both variable, however <b>let</b> is used for variables that are truely variable whereas <b>const</b> is something that will not change.&nbsp;<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let\">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let</a></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "var myName = \"George\" // Normal Javascript Varible\nlet myName = \"George\" // Value intended to change\nconst myName = \"George\" // Value not intended to change"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Arrow Functions</h3><div>Arrows functions are like normal functions, and look similar, but allows us to when keeping the scope of “this\"</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Normal Function\nfunction printMyName(name){\n  console.log(name);\n}\nprintMyName('George')"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//Arrow Function\nconst printMyName = (name) => {\n  console.log(name);\n}\nprintMyName('George')"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//Long function\nconst multiply = (number) => {\n  return number * 2;\n}\nconsole.log(multiply(2));"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "//Short Function\nconst multiply = number =>  number * 2;\nconsole.log(multiply(2));"
+    },
+    {
+      "type": "text",
+      "data": "<b>Arrow functions do not have “arguments\"</b><div><div>If we access the arguments object from an arrow function, it takes them from the outer “normal” function.</div><div><br></div><div>Here’s an example:</div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function f() {\n  let showArg = () => alert(arguments[0]);\n  showArg();\n}\n\nf(1); // 1"
+    },
+    {
+      "type": "text",
+      "data": "<div>As we remember, arrow functions don’t have their own <code>this</code>. Now we know they don’t have the special <code>arguments</code> object either.</div>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Exports &amp; Imports</h3><div>Code is split over several files, importing and exporting values establish relatiosnhips between modules parts of the codebase</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// person.js (default export)\nconst person ={\n  name:\"George\"\n}\nexport default person // default keyword sets up the export"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// utility.js (named export)\nexport const clean=()=>{..}\nexport const baseData = 10;"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// app.js\nimport person from './person.js' // calls the default export\nimport prs from './person.js' // name can be set\n\nimport { baseData } from '/utility.js' // calls the named export\nimport { clean } from 'utility.js'\nimport { clean as Clean } from 'utility.js' // Renamed\nimport * as bundled from 'utility.js' // calls all named export, bundled.clean / bundled.baseData"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Basic Dom Manipulation</h3>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<div id=\"app\"></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function Person(props){\n  return(\n    <div class=\"person\">\n      <h1>{props.name}</h1>\n      <p>Age: {props.age}</p>\n    </div>\n  );\n}\n\nvar app = (\n  <div>\n    <Person name=\"George\" age=\"31\"/>\n    <Person name=\"Frank\" age=\"32\"/>\n  </div>\n);\n\nReactDOM.render(app, document.querySelector('#app'));"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    }
+  ]
+}

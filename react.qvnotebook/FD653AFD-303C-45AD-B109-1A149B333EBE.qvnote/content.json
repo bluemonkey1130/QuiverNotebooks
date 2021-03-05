@@ -1,0 +1,53 @@
+{
+  "title": "PHP Storm",
+  "cells": [
+    {
+      "type": "text",
+      "data": "PhpStorm integrates with React providing assistance in configuring, editing, linting, running, debugging, and maintaining your applications.<div><h3>Creating a new React application﻿</h3><div>The recommended way to start building a new React single page application is create-react-app package, which PhpStorm downloads and runs for you using npx. As a result, your development environment is preconfigured to use webpack, Babel, ESLint, and other tools.</div><div><br></div><div>Of course, you can still download Create React App yourself or create an empty PhpStorm project and install React in it.</div><div><h3>Completing code﻿</h3><div>PhpStorm provides code completion for React APIs and JSX in JavaScript code. Code completion works for React methods, React-specific attributes, HTML tags and component names, React events, component properties, and so on. Learn more from the React official website.</div><div><br></div><div>To get code completion for React methods and React-specific attributes, you need to have the react.js library file somewhere in your project. Usually the library is already in your node_modules folder.</div></div><div><br></div></div><div><h3>Completing React methods, attributes, and events﻿</h3><div>By default, the code completion popup is displayed automatically as you type. For example:</div></div>"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/A72AC4008A03E2F2DBBD43DBF354C192.png\" alt=\"ws_react_completion_methods_and_attributes_light.png\" width=\"706\" height=\"249\">"
+    },
+    {
+      "type": "text",
+      "data": "In JSX tags, PhpStorm provides coding assistance for React-specific attributes, such as className or classID, and non-DOM attributes, such as key or ref. Moreover, auto-completion also works for names of classes defined in the project’s CSS files:"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/7F44374B0AFD390EF38A38D9E4D7B86F.png\" alt=\"ws_react_classname_light.png\" width=\"756\" height=\"326\">"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"color: rgba(255, 255, 255, 0.8); font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">All&nbsp;</span><a href=\"https://facebook.github.io/react/docs/events.html#supported-events\" data-test=\"external-link \" rel=\"\" class=\"link link--external link--dark\" id=\"62fe3\" style=\"margin: 0px; padding: 0px 0px 2px; border-top-width: 0px; border-right-width: 0px; border-left-width: 0px; border-bottom-color: var(--wh-color-purple-dark); font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 15px; line-height: inherit; font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; vertical-align: baseline; cursor: pointer; text-decoration: none; color: var(--wh-color-purple); transition: color var(--wh-transition-xfast), border-color var(--wh-transition-xfast); orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">React events</a><span style=\"color: rgba(255, 255, 255, 0.8); font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">, such as&nbsp;</span><code class=\"code \" id=\"62fe5\" style=\"padding: 0px 6px; border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 15px; line-height: inherit; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; vertical-align: baseline; box-sizing: border-box; color: rgba(255, 255, 255, 0.8); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; display: inline-block; word-break: break-word; orphans: 2; widows: 2;\">onClick</code><span style=\"color: rgba(255, 255, 255, 0.8); font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">&nbsp;or&nbsp;</span><code class=\"code \" id=\"62fe6\" style=\"padding: 0px 6px; border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 15px; line-height: inherit; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; vertical-align: baseline; box-sizing: border-box; color: rgba(255, 255, 255, 0.8); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; display: inline-block; word-break: break-word; orphans: 2; widows: 2;\">onChange</code><span style=\"color: rgba(255, 255, 255, 0.8); font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">, can also be completed automatically together with curly braces&nbsp;</span><code class=\"code \" id=\"62fe7\" style=\"padding: 0px 6px; border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 15px; line-height: inherit; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; vertical-align: baseline; box-sizing: border-box; color: rgba(255, 255, 255, 0.8); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; display: inline-block; word-break: break-word; orphans: 2; widows: 2;\">={}</code><span style=\"color: rgba(255, 255, 255, 0.8); font-family: system-ui, -apple-system, system-ui, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(39, 40, 44);\">:</span>"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/C6D28448C2F3B5BDD9C5D0574529315F.png\" alt=\"ws_react_events_light.png\" width=\"677\" height=\"265\">"
+    },
+    {
+      "type": "text",
+      "data": "<div>Completion also works for JavaScript expressions inside curly braces. This applies to all the methods and functions that you have defined:</div>"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/1713E5A23071B37DC7F4A8655E936B3A.png\" alt=\"ws_react_javascript_expression_light.png\" width=\"706\" height=\"372\">"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Extract a component﻿</h3><div>You can create a new React component by extracting the JSX code from the render method of an existing component. The new component can be defined as a function or as a class, see Function and Class Components on the React official website.</div>"
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/E8C390D8E02A1775A6BB8DF3FB3890BD.png\" alt=\"ws_react_extract_functional_component_light.png\" width=\"677\" height=\"437\">"
+    },
+    {
+      "type": "text",
+      "data": "<div><ol><li>Select the code you want to extract and choose Refactor | Extract Component from the context menu.</li><li>Alternatively, go to Refactor | Extract/Introduce | Extract Component on the main menu or press ⌃T and select Extract Component from the popup.</li><li>In the dialog that opens, specify the name of the new component and its type. By default, a functional component is created. If you want to define the new component as a class, select Class.</li><li>Click OK. The new component will be defined next to the existing one and used in it.</li><li>Optionally: use the Move Symbol refactoring to move the new component and all the required imports to a separate file.</li><li>Optionally: modify the code templates that PhpStorm uses for new components. In the Settings/Preferences dialog ⌘,, go to Editor | File and Code Templates, open the Code tab, and update the templates as necessary using the Apache Velocity template language.<br></li></ol></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "title": "Events",
+  "cells": [
+    {
+      "type": "text",
+      "data": "When browsing the web, browsers register different types of events. Scripts can respond to these events<div><ul><li><b>Interactions create events</b></li><ul><li>Events occur when users click or tap on a link, hover or swipe over an element, type on the keyboard, resize the window, or when the page requested has loaded</li></ul><li><b>Events trigger code</b></li><ul><li>When an event occurs or fires, it can be used to trigger a particular function. Different code can be triggered when users interact with different parts of the page</li></ul></ul></div>"
+    },
+    {
+      "type": "text",
+      "data": "<div><b>UI Events</b></div><div>Occur when a user interacts with the browser’s user interface(UI) rather than the web page</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "load // Web page has finished loading\nunload // Web page is unloading\nerror // Browser encounters a JavaScript error or an asset doesn't exist\nresize // Browser window has been resized\nscroll // User has scrolled up or down the page"
+    },
+    {
+      "type": "text",
+      "data": "<b>Keyboard Events</b><div>Occur when a user interacts with the keyboard</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "keydown // User presses a key (repeats why key is depressed)\nkeyup // User releases a key\nkeypress // Character is being inserted (repeats why key is depressed)"
+    },
+    {
+      "type": "text",
+      "data": "<b>Mouse Events</b><div>Occur when a user interacts with a mouse, trackpad, or touchscreen<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": ".on\n  click // User presses and releases a button over the same element\n  dblclick // User presses and releases a button twice over the same element\n  mousedown // User presses a mouse button while over an element\n  mouseup // User releases a mouse button while over and element\n  mousemove // User move the mouse (not on a touchscreen)\n  mouseover // User moves the mouse over an element (not on a touchscreen)\n  mouseout // User moves the mouse off an element (not on a touchscreen)"
+    },
+    {
+      "type": "text",
+      "data": "<b>Focus Events</b><div>Occur when an element gains or loses focus</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "focus / focusin // Element gain focus\nblur / focusout // Element loses focus"
+    },
+    {
+      "type": "text",
+      "data": "<b>Form Events</b><div>Occur when a user interacts with a form element<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "input // Value in any <input> or <textarea> element has changed\nchange // Value in select box, checkbox or radio button changes\nsubmit // Users submits a form\nreset // User clicks on a form's reset button\ncut // User cuts content from a form field\ncopy // User copies content from a form\npaste // User pastes content into a form field\nselect // User selects some text in a form field"
+    },
+    {
+      "type": "text",
+      "data": "<b>Mutation Events</b><div>Occur when DOM structure has been changed by a script</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "DOMSubtreeModified // Chnaged has been made to the document\nDOMNodeInserted // Node had been inserted as a direct child of another node\nDOMNodeRemoved // Node has been removed from another node\nDOMNodeInsertedIntoDocument // Node has been inserted as a descendant of another node\nDOMNodeRemovedFromDocument // Node has been removed as a descendant of another node"
+    },
+    {
+      "type": "text",
+      "data": "<b>Inline JavaScript</b><div>Using &lt;script&gt; tags isn’t the only way you can execute JavaScript, you can access JavaScript from within HTML tags.</div>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<img src='apple.png'\n  onmouseover = \"this.src='orange.png'\"\n  onmouseout = \"this.src='apple.png\">"
+    },
+    {
+      "type": "text",
+      "data": "<b>Attaching Events to Objects in a Script</b>"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<img id='object' src='apple.png'>\n<script>\n  O('object').onmouseover = function() { this.src = 'orange.png'}\n  O('object').onmouseout  = function() { this.src = 'apple.png'}\n</script>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Attaching to other events</b><div>Whetther you’re using inline or separate JavaScript, there are several events to which you can attach actions, providing a wealth of additional features you can offer your users</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "onabort // When an images's loading is stopped before completion\nonblur // When an element loses focus\nonchange // When any part of a form has changed\nonclick // When an object is clicked\nondbclick // When an object is double-clicked\nonerror // When a JavaScript error is encountered\nonfocus // When and element gets focus\nonkeydown // When a key is being pressed (including Shift, Alt, Ctrl and Esc)\nonkeypress // When a key is being pressed (not including Shift, Alt, Ctrl and Esc)\nonkeyup // When a key is released\nonload // When a key is released\nonmousedown // When the mouse button is presed over a item\nonmousemove // When the mouse is moved over an element\nonmouseout // When the mouse leaves an element\nonmouseover // When the mouse passes over an element from outside it\nonmouseup // WHen the mouse button is released\nonsubmit // When a form is submitted\nonscroll // When the browser is resized\nonselect // When some text is selected\nonunload // When a document is removed"
+    },
+    {
+      "type": "text",
+      "data": "<b>Adding new elements</b><div>With JavaScript, you are not limited to manipulating the elements and objects supplied to a document in its HTML. In fact, you can create objects at will by inserting them into the DOM.</div>"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "title": "Browser Objects",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Browsers come with a set of built in objects that represent things like the <b>browser window</b> and the <b>current webpage</b> shown in that window. These built in objects act like a toolkit for creating interactive webpages.<div><ol><li><b>Browser&nbsp;</b><br></li><li><b>Document</b></li><li><b>Globals</b></li></ol><div><ul><li>Built in objects contain functionality commonly needed by many scripts.</li><li>As soon as a webpage has loaded into the browser, these objects are available to use in your scripts</li></ul><div><b>Used to access a wide range of information such as:&nbsp;</b></div></div><div><ul><li>The width of the browser</li><li>The content of the main heading in the page</li><li>the length of text a user entered into a form</li></ul><div>You access their properties or methods using dot notation</div><hr></div></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h2><span style=\"font-weight: normal;\">1) Browser Object Model</span></h2><div>The browser object model contains objects that represent the current browser window or tab. It contains objects that model things like browser history and the device screen.</div><div><br></div><div>- The topmost object is the&nbsp;<b>window</b>&nbsp;object, which represents current browser window or tab. It’s child objects represents other browser features.<br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "window // current browser window or tab\n  .document // Current webpage\n  .history // Contains details of the pages that have been viewed in the window\n  .location // URL of current page\n  .navigator // Information about browser\n  .screen // device's display information\n  \nwindow.print();\nwindow.screen.width;"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">1.1) The <code>window</code><i></i> object</span></h3><div>The window object represents the current browser window or tab. It is the topmost object in the Browser Object Model, and it contains other objects that tell you about the browser&nbsp;</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Properties\nwindow.innerHeight // Height of window (excluding browser chrome/user interface) (in pixels)\nwindow.innerWidth // Width of the window (exluding browser chrome/user interface) (in pixels)\nwindow.outerHeight // Sets or returns the outer height of a window, tool and scroll bars\nwindow.outerWidth // Sets or returns the outer width of a window, tool and scroll bars\nwindow.pageXOffset // Distance of document has been scrolled horizontally (in pixels)\nwindow.pageYOffset // Distance of document has been scrolled vertically (in pixels)\nwindow.screen\nwindow.screenLeft\nwindow.screenTop\nwindow.screenX // X-coordinate of pointer, relative to top left corner of the screen (in pixels) \nwindow.screenY // Y-coordinate of pointer, relative to top left corner of the screen (in pixels) \nwindow.history.length // Number of items in history object for browser window or tab\nwindow.screen.width // Accesses screen object and finds value of it's width property (in pixels)\nwindow.screen.height // Accesses screen object and finds value of it's height property (in pixels)\n\n//Methods\nwindow.alert() // Creates a dialog box with message (user must click to close it)\nwindow.open() // Opens a new browser window with URL specified as a paremeter\nwindow.print() // Tells that user wants to print contents of current page"
+    },
+    {
+      "type": "text",
+      "data": "1.2) Using the <code>window</code> object"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let msg = '<h2>browser window</h2><p>width:' + window.innerWidth + '</p>';\nmsg += '<p>height:' + window.innherHeight + '</p>';\nmsg += '<h2>history</h2><p>items:' + window.history.length + '</p>';\nmsg += '<h2>screen</h2><p>width:' + window.screen.width + '</p>';\nmsg += '<p>height:' + window.screen.height + '</p>';\n\nconsole.log(msg + window.location);"
+    },
+    {
+      "type": "text",
+      "data": "<h2><span style=\"font-weight: normal;\">2)</span> <span style=\"font-weight: normal;\">The</span> <span style=\"font-weight: normal;\"><code>document</code></span><i>&nbsp;<span style=\"font-weight: normal;\">o</span></i><span style=\"font-weight: normal;\">bject model</span></h2><div><div>The document object model uses objects to create a representation of the current page. It creates a new object for each element (and each individual section of text within a page).</div></div><div><br></div><div>The <code>DOM</code> breaks down the parts of an <code>HTML</code> document into discrete <i>objects, </i>&nbsp;each with its own <i>properties</i> and <i>methods</i>&nbsp;and each subject to JavaScript’s control. JavaScript separates objects, properties and methods by using a period (one good reason why + is the string concatenation operator in JavaScript, rather than the period)</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "document\n  <html>\n    <head>\n      <title>\n    <body>\n      <div>\n      attribute\n        <p>\n          text\n          \ndocument.getElementById('one');\ndocument.lastModified;"
+    },
+    {
+      "type": "text",
+      "data": "2.1) The <code>document</code> object<div>the top most object in the Document Object Model or DOM is the document object. It represents the webpage loaded into the current browser window or tab.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Properties\ndocument.title // Title of the current document\ndocument.lastModified // Date on which the document was last modified\ndocument.URL // Returns string containing URL of the current document\ndocument.domain // Returns the domain of current document\n\n// Methods\ndocument.write() // Writes text to document\ndocument.getElementbyID() // Returns element, if there is an element with the value of the id attribute\ndocument.querySelectorAll() // Returns a list of elements that match a CSS selector, which is specified\ndocument.createElement() // Creates a new element\ndocument.createTextNode() // Creates a new text node"
+    },
+    {
+      "type": "text",
+      "data": "2.2) Using the <code>document</code> object"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let msg = '<p><b>page title:</b>' + document.title +'</br>';\nmsg += '<b>page address: </br>' + document.URL + '</br>';\nmsg += '<b>last modified:</b>' + document.lastModified + '</p>';\n\nconsole.log(msg);"
+    },
+    {
+      "type": "text",
+      "data": "2.3) The links object is actually an array of URL’s, so the mylink URL"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "url = document.links[0].href\nnumLinks = document.links.length\n\nfor (i = 0; i < document.links.length; ++i){\n  document.write.(document.links[i].href + '<br>')\n}"
+    },
+    {
+      "type": "text",
+      "data": "The length of somthing is a property of every array, and many objects as well. For example, the number of items in your browser’s web history can be queried like this:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "document.write(history.length)\nhistory.go(-3) // Send the browser back 3 pages\nhistory.back() // Move back\nhistory.forward() //Move forward"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<h2><span style=\"font-weight: normal;\">3) Global <code>j</code><i><code>avascript</code></i> Objects</span></h2><div><div>The global JavaScript objects represent things that the JavaScript language needs to create a model of. For example, there is an object that deals only with dates and times</div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Basic data types\nstring // For working with string values\nnumber // For working with numeric values\nboolean // For working with boolean values\n\n// Real world concepts\ndate // To represent and handle dates\nmath // For working with numbers and calculations\nregex // For matching patterns within strings of text\n\nhotel.toUpperCase(); // turns strings to uppercase\nmath.PI(); // returns value of pi"
+    },
+    {
+      "type": "text",
+      "data": "3.1) <code>String</code> objects<div>whenever you have a value that is a string, you can use the properties and methods of the <code>String</code>​ object on that blue. This example stores the phrase “Home sweet home” in a variable</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let saying = 'Home sweet home '\n// Property\nsaying\n  .length // Returns number of characters in the string // index: 7\n// Methods\nsaying.\n  .toUpperCase(); // Changes string to uppercase characters. // 'HOME SWEET HOME '\n  .toLowerCase(); // Changes string to lowercase characters. // 'home sweet home '\n  .charAt(12) // Takes a index number as a parameter and returns the character // 'o'\n  .indexOf('ee') // Returns the index number of the first time a character (or set of), is found // index: 7\n  .lastIndexOf('e') // Returns the index number of the last time a character (or set of), is found // index: 14\n  .substring(8,14) // Returns characters found between two index numbers, the first index number is included but the last index number is not included // 'et home'\n  .split(' ') // When a character is specified it splits the string each time is it found, then stores each individual part in an array // [\"Home\", \"sweet\", \"home\"]\n  .trim() // Removes whitespace from start and end of string // 'Home sweet home'\n  .replace('me','w') // Like find and replace, it takes one value that should be found, and another to replace it // 'How sweet home '"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

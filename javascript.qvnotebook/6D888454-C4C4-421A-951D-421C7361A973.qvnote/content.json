@@ -1,0 +1,106 @@
+{
+  "title": "Operators",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Operators in JavaScript</span></h3><div>Operators can involves mathematics, changes to strings, and comparison and logical operations (and, or, etc) JavaScript mathematical operators look a lot like plain arithmetic.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "document.write(13 + 2) // 15"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Arithmetic Operators</span></h3><div>these are used for mathematics. Your can use them for the main four operations (addition, subtraction, multiplication and division) as well as to find the modulus (the remainder after a division) and to increment or decrement a value</div>"
+    },
+    {
+      "type": "markdown",
+      "data": "Operator       | Description        | Example\n-------------  | -----------------  | -------------\n+              | addition           | j + 12\n-              | subtraction        | j - 22\n*              | multiplication     | j * 7\n/              | Division           | j / 3.13\n%              | Modulus (reainder) | j % 6\n++             | Increment          | ++j\n--             | Decrement          | --j"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Assignment Operators</span></h3><div>They are used to assign values to variable. They start with the very simple =, and move on to +=, -+ and so on. The operators += adds the value on the right side to the varible on the left, instead of totally replacing the value on the left.&nbsp;</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "count += 1 \n// is equal to\ncount = count + 1"
+    },
+    {
+      "type": "markdown",
+      "data": "Operator       | Example            | Equivalant to\n-------------  | -----------------  | -------------\n=              | j = 99             | j = 99\n+=             | j += 2             | j = j + 2\n+=             | j += 'string'      | j = j = 'string'\n-=             | j -= 12            | j = j -12\n*=             | j *= 2             | j = j * 2\n/=             | j /= 6             | j = j / 6\n%=             | j %= 7             | j = j % 7 "
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Comparison Operators</span></h3><div>Used inside a contstruct such as an <code>if</code>​ statement, where you need to compare two items. For example, you may wish to know whether a variable you have been incrementing has reached a specific value, or whether another varible is less than a set value, and so on</div>"
+    },
+    {
+      "type": "markdown",
+      "data": "Operator       | Description                        | Example\n-------------  | ---------------------------------  | -------------\n==             | is equal to                        | j == 42\n!=             | is not equal to                    | j != 17\n>              | is greater than                    | j > 0\n<              | is less than                       | j < 100\n>=             | is greater than or equal to        | j >= 23\n<=             | is less than or equal to           | j <= 13\n===            | is equal to (and of same type)     | j === 56\n!==            | is not equal to (and of same type) | j !== '1'"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Logical Operators</span></h3>"
+    },
+    {
+      "type": "markdown",
+      "data": "Operator       | Description        | Example\n-------------  | -----------------  | ----------------\n&&             | And                | j == 1 && k == 2\n||             | Or                 | j < 100 || j > 0\n!              | Not                | ! (j == k)"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Variable incrementing &amp; decrementing</span></h3><div>The following forms of post and pre incrementing and decrementing you learned to use in PHP are also supported by JavaScript.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "++x\n--y\nX += 22\ny -= 3"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">String Concatenation</span></h3><div>JavaScript handles string concatenation slightly differently from PHP. Instead of the . (period) operator, it uses the plus sign (+)</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "document.write(\"You have\" + messages + \"messages.\")\n\nname = \"james\"\nname += \" Dean\""
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Escaping Characters</span></h3><div><span style=\"font-weight: normal;\">You can insert various special&nbsp;</span>characters such as tabs, new lines and carrige returns.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "heading = \"Name\\tAge\\tLocation\""
+    },
+    {
+      "type": "markdown",
+      "data": "Character      | Meaning       \n-------------  | -------------\n\\b             | Backspace\n\\f             | Form feed\n\\n             | New line\n\\t             | Carriage return\n\\'             | Single quote (or apostrophe)\n\\\"             | Double Quote\n\\\\             | Backslash\n\\XXX           | An octal number between 000 and 377 that represents the Latin-1 character\n\\xXX           | A hexadecimal number between 00 and FF that represents the Latin-1 character\n\\uXXXX         | A hexadecimal number between 0000 and FFFF that represents the Unicode character"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "&nbsp;&nbsp;"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

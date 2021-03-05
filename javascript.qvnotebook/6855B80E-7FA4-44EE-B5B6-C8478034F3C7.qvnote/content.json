@@ -1,0 +1,90 @@
+{
+  "title": "Spread & Rest",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><b>Spread &amp; Rest Operator</b></h3><div>The spread and rest syntax operators actually use the same syntax&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">…</code>​ It’s usage determins whether you’re using is as the spread or rest operator</div>"
+    },
+    {
+      "type": "text",
+      "data": "<div><b>Using the Rest Operator</b></div><div>A function can be called with any number of arguments, no matter how it is defined:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function sum(a, b) {\n  return a + b;\n}\n\nalert( sum(1, 2, 3, 4, 5) ); // There will be no error because of “excessive” arguments"
+    },
+    {
+      "type": "text",
+      "data": "The rest of the parameters can be included in the function definition by using three dots ... followed by the name of the array that will contain them. The dots literally mean “gather the remaining parameters into an array”."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function sumAll(...args) { // args is the name for the array to catch all arguments\n  let sum = 0;\n\n  for (let arg of args) sum += arg;\n\n  return sum;\n}\n\nalert( sumAll(1) ); // 1\nalert( sumAll(1, 2) ); // 3\nalert( sumAll(1, 2, 3) ); // 6"
+    },
+    {
+      "type": "text",
+      "data": "We can choose to get the first parameters as variables, and gather only the rest. Here the first two arguments go into variables and the rest go into&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">titles</code>&nbsp;array:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function showName(firstName, lastName, ...titles) { //The ...rest must always be last.\n  alert( firstName + ' ' + lastName ); // Julius Caesar\n\n  // the rest go into titles array\n  // i.e. titles = [\"Consul\", \"Imperator\"]\n  alert( titles[0] ); // Consul\n  alert( titles[1] ); // Imperator\n  alert( titles.length ); // 2\n}\n\nshowName(\"Julius\", \"Caesar\", \"Consul\", \"Imperator\");"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const array = [1, 2, 3, 4, 5, 6]\nconst [a, b, ...c] = array;\nconsole.log(a) // Prints 1\nconsole.log(b) // Prints 2\nconsole.log(c) // Prints [3, 4, 5, 6]\nconsole.log(array) // Prints [1, 2, 3, 4, 5, 6]"
+    },
+    {
+      "type": "text",
+      "data": "<div><b>Using the Spread Operator</b></div><div>The spread operator allows you to pull elements out of an array(=&gt; split the array into lists of it’s elements) or pull the properties out of an objecy.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const oldArray = [1, 2, 3];\nconst newArray [...oldArray, 4, 5] "
+    },
+    {
+      "type": "text",
+      "data": "&nbsp;Use the spread syntax to turn the string into array of characters:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let str = \"Hello\";\n\nalert( [...str] ); // H,e,l,l,o"
+    },
+    {
+      "type": "text",
+      "data": "Spread operator used on a object"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const oldObject = {\n  name : 'George'\n};\nconst newObject = {\n  ...oldObject,\n  age: 28\n}"
+    },
+    {
+      "type": "text",
+      "data": "The spread operator is extremly useful for cloning array and objects. Since both are reference types (and not primitives), copying them safely (i.e preventing future mutation of the copied original) can be tricky. With the spread operator you have an easy way of creating a (shallow!) clone of the object array"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let arr = [1, 2, 3];\nlet arrCopy = [...arr]; // spread the array into a list of parameters\n                        // then put the result into a new array\n\n// do the arrays have the same contents?\nalert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true\n\n// are the arrays equal?\nalert(arr === arrCopy); // false (not same reference)\n\n// modifying our initial array does not modify the copy:\narr.push(4);\nalert(arr); // 1, 2, 3, 4\nalert(arrCopy); // 1, 2, 3"
+    },
+    {
+      "type": "text",
+      "data": "Note that it is possible to do the same thing to make a copy of an object:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let obj = { a: 1, b: 2, c: 3 };\nlet objCopy = { ...obj }; // spread the object into a list of parameters\n                          // then return the result in a new object\n\n// do the objects have the same contents?\nalert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true\n\n// are the objects equal?\nalert(obj === objCopy); // false (not same reference)\n\n// modifying our initial object does not modify the copy:\nobj.d = 4;\nalert(JSON.stringify(obj)); // {\"a\":1,\"b\":2,\"c\":3,\"d\":4}\nalert(JSON.stringify(objCopy)); // {\"a\":1,\"b\":2,\"c\":3}"
+    },
+    {
+      "type": "text",
+      "data": "<div><b>Summary</b></div><div>When we see \"...\" in the code, it is either rest parameters or the spread syntax.</div><div>There’s an easy way to distinguish between them:</div><div><ul><li>When ... is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.&nbsp;<br></li><li>When ... occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.</li></ul></div><div>Use patterns:</div><div><ul><li>Rest parameters are used to create functions that accept any number of arguments.<br></li><li>The spread syntax is used to pass an array to functions that normally require a list of many arguments.</li></ul></div><div>Together they help to travel between a list and an array of parameters with ease.</div><div>All arguments of a function call are also available in “old-style” arguments: array-like iterable object</div>"
+    }
+  ]
+}

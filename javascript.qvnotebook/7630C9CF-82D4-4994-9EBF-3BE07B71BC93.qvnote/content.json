@@ -1,0 +1,59 @@
+{
+  "title": "Functions",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Functions</span></h3><div>Used to seperate out sections of code that perform a particular task.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// Function Template\nfunction function_name([parameter [, ...]])\n{\n  statments\n}\n// Example Function\nfunction product(a, b){\n  return a*b\n}"
+    },
+    {
+      "type": "text",
+      "data": "<b>The&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">arguments</code>&nbsp;array</b><div>The arguments array is a memeber of every function. With is, you can determine the number of variables passed to a function and what they are.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "displayItems(\"Dog\", \"Cat\", \"Pony\", \"Hamster\", \"Tortoise\")\nfunction displayItems(v1, v2, v3, v4, v5){\n  console.log(v1)\n  console.log(v2)\n  console.log(v3)\n  console.log(v4)\n  console.log(v5)\n}"
+    },
+    {
+      "type": "text",
+      "data": "Modifying the function to use the arguments array"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function displayItems(){\n  for (j = 0 ; j < displayItems.arguments.length ; ++j)\n    console.log(displayItems.arguments[j])\n}"
+    },
+    {
+      "type": "text",
+      "data": "<b>Returning a value</b><div>Functions are not used just to display things. In fact, they are mostly used to perform calculation or data manipulation and then return a result. The function&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">fixNames</code>&nbsp;inthe next example uses the arguments array to take a to convert every character in the arguments to lowercase except for the first character of each arguments, which is set to a capital letter.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "console.log(fixNames(\"the\", \"DALLAS\", \"Cowboys\"))\nfunction fixNames(){\n  var s = \"\"\n  for (j=0 ; j < fixNames.arguments.length ; ++j)\n    s += fixNames.arguments[j].charAt(0).toUpperCase() +\n         fixNames.arguments[j].substr(1).toLowerCase() + \" \"\n  return s.substr(0, s.length-1) \n}"
+    },
+    {
+      "type": "text",
+      "data": "<ol><li>This function first initialises thr temporary (and local) varible&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">s</code>&nbsp;to the empty string.</li><li>Then a&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">for</code>&nbsp;loop iterates through each of the passed parameters</li><ol><li>Isolating the parameter’s first character using the&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">charAt</code>&nbsp;method and converting it to use uppercase with the&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">toUpperCase</code>&nbsp;method</li><li>Then the&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">substr</code>​ method is used to fetch the rest of each string, which is converted to lowercase using the&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">toLowerCase</code>​ method</li><li>Finally the&nbsp;<code style=\"font-size: 11.699999809265137px; background-color: rgba(255, 255, 255, 0.1);\">substr</code>&nbsp;method is used again to return the contents of the variable s (removing the last space)</li></ol></ol>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// The substr method here starts with the character postion \"1\" and returnt eh rest of the string, length minus one, it assumes this if you omit the second argumant\nsubstr(1, (arguments[j].length) - 1)]"
+    },
+    {
+      "type": "text",
+      "data": "<b>Returning an Array</b><div>If you want to return multiple parameters, you can return an array</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "words = fixNames(\"the\", \"DALLAS\", \"Cowboys\")\n\nfor (j = 0 ; j < words.length ; ++j){\n  console.log(words[j])\n}\n\nfunction fixNames(){\n  var s = new Array()\n  for (j = 0 ; j < fixNames.arguments.length ; ++j){\n    s[j] = fixNames.arguments[j].charAt(0).toUpperCase()\n      + fixNames.arguments[j].substr(1).toLowerCase()\n  }\n  return s\n}"
+    }
+  ]
+}

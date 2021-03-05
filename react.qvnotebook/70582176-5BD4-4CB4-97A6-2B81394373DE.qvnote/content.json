@@ -1,0 +1,32 @@
+{
+  "title": "Base Syntax",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<b>Setting up a local React project</b><div>Why use build workflows:</div><div><ul><li>Optimize code</li><li>Use Next-Gen Javascript Features (ES6 vs ES5)</li><li>Be more productive</li></ul><div>How to use workflows:</div></div><div><ul><li>Use <b>Dependancy Managment</b> tool (<b>npm</b> or <b>yarn</b>)</li><li>Use <b>Bundler</b>: <b>Webpack</b></li><li>Use <b>Compiler</b> (Next-Gen JavaScript) <b>babel</b> + Presets</li><li>Use a <b>Development Sever</b></li></ul></div>"
+    },
+    {
+      "type": "text",
+      "data": "Create a React App:&nbsp;<a href=\"https://github.com/facebook/create-react-app\">https://github.com/facebook/create-react-app</a>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "npm install -g create-react-app // Install globally\nnpx create-react-app my-app // Install app tempalte in directory\nnpm start // Start development sever\nnpm run build // Production build"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// index.js\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css'; \nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n\n// Renders element <App /> "
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// App.js\nimport React, { Component } from 'react';\nimport './App.css';\n\nclass App extends Component {\n  render() {\n    return (\n      // This is JSX code not HTML\n      <div className=\"App\">  \n          <h1>Hi I'm a React App</h1> \n      </div>\n      \n    // This is the same as above, but more cumbersome\n    return React.createElement('div', {className: 'App'}, \n           React.createElement('h1', null, 'Does this work now'))\n    );\n  }\n}\n\nexport default App;"
+    },
+    {
+      "type": "text",
+      "data": "JSX allows us to write HTML like code, but some words are already reserved, like class so we use className.&nbsp;"
+    }
+  ]
+}

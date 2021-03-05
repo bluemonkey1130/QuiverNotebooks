@@ -1,0 +1,17 @@
+{
+  "title": "Class based vs Functional Components",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>Functional components historically did’nt support state, but the intorduciton of hooks has changed this, if you are using new versions of react you may just want to use functional components, but older version will require you to use classes if you want to mange state.&nbsp;</div><h3>Class based</h3><div><code>class XY extends Component</code></div><div><ul><li>​Access to state<br></li><li>Lifecycle Hooks</li></ul><div>Access State and Props via “this”</div></div><div><code>this.state.XY</code> &amp; <code>this.props.XY</code></div><div><code><hr></code></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Functional</h3><div><code>const XY props =&gt; { … }</code></div><div><ul><li>​Access to State via Hooks (<code>useState()</code>)<br></li><li><strike>Lifecycle Hooks</strike></li></ul><div>Access Props via “props”</div></div><div><code>props.XY</code></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

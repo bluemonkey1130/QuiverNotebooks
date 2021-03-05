@@ -1,0 +1,107 @@
+{
+  "title": "Javascript Object",
+  "cells": [
+    {
+      "type": "text",
+      "data": "A JavaScript object is a step up from a variable, which can contain only one value at a time, in that objects can contain multiple values and even functions. An object grouped data together with the functions needed to manipulate it.<div><b><br></b></div><div><b>Declaring a class</b></div><div>When creating a script to use objects, you need to design a composite of data and code called a class. Each new object based on this class is called a instance of that class. The data is called properties &amp; the functions are called methods</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function User(forename, username, password){\n  this.forename = forename\n  this.username = username\n  this.password = password\n  \n  this.showUser = function(){\n    console.log(\"Forename:\" + this.forename)\n    console.log(\"Username:\" + this.username)\n    console.log(\"Password:\" + this.password)\n  }\n}\nperson = new User(\"George\", \"Hawthorne\", \"password\") // Create instance user\nconsole.log(person)"
+    },
+    {
+      "type": "text",
+      "data": "<ul><li>This function refers to an object named <code>this</code>. When the program creates an instance of <code>User</code> by running this function, <code>this</code> refers to the instance being created. The same function can be called over and over with different arguments, and will create a new <code>User</code> each time with different valus for the properties <code>forename</code>, and so on.</li><li>A new function named <code>showUser</code> is created within the function. The syntax shown here is and rather complicated, but its purpose is to tie <code>showUser</code> to the <code>User</code> class. Thus, <code>showUser</code> comes into being as a method of the <code>User</code> class.</li></ul>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function User(forename, username, password){\n  this.forename = forename\n  this.username = username\n  this.password = password\n}\nfunction showUser(){\n  console.log(\"Forename:\" + this.forename)\n  console.log(\"Username:\" + this.username)\n  console.log(\"Password:\" + this.password)\n}"
+    },
+    {
+      "type": "text",
+      "data": "<b>Creating an Object</b><div>To create an instance of the class User, you can use a statment such as the following:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "details = new User(\"Wolfgang\", \"w.a.mozart\", \"composer\")"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "details = new User() // New empty instance\ndetails.forename = \"Wolfgang\" // Populate existing properties\ndetails.username = \"w.a.mozart\"\ndetails.password = \"composer\"\ndetails.greeting = \"hello\" // Add new properties"
+    },
+    {
+      "type": "text",
+      "data": "<b>Accessing Objects</b><div>to access an object, you can refer to its properties, as in the following two unrelated example statements:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "name = details.forename\nif (details.username == \"Admin\") loginAsAdmin()"
+    },
+    {
+      "type": "text",
+      "data": "So, to access the showUser method of an object of class user, you would use the following syntax, in which the object details has already been created and populated with data:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "details.showUser()"
+    },
+    {
+      "type": "text",
+      "data": "<b>The prototype keyword</b><div>The prototype keyword can save you a lot of memory. In the <code>User</code> class, every instance will contain the three properties and the method. Therefore, if you have 1,000 of these objects in memory, the method showUser will also be replicated 1,000 times. However, because the method is identical in every case, you can specify that new objects should refer to a single instance of the method instead of creating a copy of it. So, instead fusing the following in a class constructor.</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "this.showUser = function() // this\n// Can be replaced with\nUser.prototype.showUser = function() // this"
+    },
+    {
+      "type": "text",
+      "data": "Declaring a class using the prototype keyword for a method"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "function User(forename, username, password){\n  this.forename = forename\n  this.username = username\n  this.password = password\n  User.prototype.showUser = function(){\n    console.log(\"Forename:\" + this.forename)\n    console.log(\"Username:\" + this.username)\n    console.log(\"Password:\" + this.password)\n  }\n}\ndetails = new User(\"Wolfgang\", \"w.a.mozart\", \"composer\")\ndetails.showUser()"
+    },
+    {
+      "type": "text",
+      "data": "This works because all functions have a <code>prototype</code> property, designed to hold properties and methods that are not replicated in any objects created from a class. Instead, they are passed to its objecy by reference. This means you can add a&nbsp;<code>prototype</code> property or method at any time, and all objects (even those already created) will inherit it."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "User.prototype.greeting = \"Hello\""
+    },
+    {
+      "type": "text",
+      "data": "Adds the <code>prototype</code> property of greeting with a value of <code>Hello</code> to the class <code>User</code>. In the second line, the object details, which has already been created, correctly displays this new property. You can also add to or modify methods in a class, as the following statements illustrate:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "User.prototype.showUser = function() {\n  document.write(\"Name \" + this.forename +\n                 \" User \" + this.username +\n                 \" Pass \" + this.password)\n}\ndetails.showUser()"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

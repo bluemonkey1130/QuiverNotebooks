@@ -1,0 +1,54 @@
+{
+  "title": "Variables",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">No particular character identifies a varible in JavaScript as the dollar sign does in PHP.&nbsp;</span></h3><div><span style=\"font-weight: normal;\">Variables&nbsp;use the following naming rules:</span></div><div><ul><li>A varible may include only the letters a-z, A-Z, 0-9, $ and the underscrore _</li><li>No other characters, such as space or punctuation</li><li>Names are case sensitive</li><li>No set limit on varible name lengths</li></ul></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h3><span style=\"font-weight: normal;\">Variables</span></h3><div>Should be enclose in a single or double quotation marks</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "greeting = \"Hello there\"\nwarning = 'Be Careful'"
+    },
+    {
+      "type": "text",
+      "data": "You may include a sinlge quote within double-quoted string or a double quote within a single quoted string, but you must escape using the backslash character"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "greeting = \"\\\"Hello there\\\" is a greeting\"\nwarning = '\\'Be Careful\\' is a warning'"
+    },
+    {
+      "type": "text",
+      "data": "JavaScript is loosely typed, the&nbsp;<i>type</i>&nbsp;of a varible is only deteremined when a value is assigned and it can change as the varible appears in different contexts.&nbsp;"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "n = '838102050' // Set 'n' to a string\nconsole.log('n='+ n + ',and is a ' + typeof n + '</br>')\n\nn = 1234 * 6789; // Set 'n' to a number\nconsole.log('n='+ n + ',and is a ' + typeof n + '</br>')"
+    },
+    {
+      "type": "text",
+      "data": "To read from a string variable"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "status = \"All systems are working\"\nconsole.log(status)"
+    },
+    {
+      "type": "text",
+      "data": "<b>Numeric Varibles</b><div>Creating a numeric variable is as simple as assigning a value, like these examples:</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "count = 42\ntemperateure = 98.4"
+    }
+  ]
+}
