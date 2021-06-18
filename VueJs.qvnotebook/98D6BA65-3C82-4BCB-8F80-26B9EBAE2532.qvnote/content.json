@@ -1,0 +1,9 @@
+{
+  "title": "Introduction",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2>Vue.j is a Javascript framework for building interactive and reactive web front ends (browser side application)</h2><div><ul><li><b>Javascript&nbsp;</b>- A programming language that is supported by all browsers. it allows you to manipulate the already running page and hence provide richer user experience<br></li><li><b>Framework&nbsp;</b>- A framework is a (third-party) library that exposes utility functionalities AND a “set of rules” (a clear guidance) on how to build your javascript application<br></li><li><b>Reactive&nbsp;</b>- Your app is able to react to user input, update the screen dynamically (e.g to show overlays or input validation errors) Look and feel of mobile apps</li><li><b>Web Front Ends&nbsp;</b>- What the user sees HTML + CSS + Javascript, running in the browser.</li></ul><h3>Why use a reactive front end?</h3></div><div><ul><li>Mobile apps are fast, and are all loaded on one page, UI is all part of the app, data may be requested<br></li><li>Web app, we click a link and wait for a page to load<br></li></ul><div>Javascript can speed up the wait when we load pages, as it runs on the page. we have a language we can use on the page to manipulate the dom directly. In a modern javascript web application, we request the app once, and then just re quest new data. Theoretically we can us just plain javascript, but frameworks make it a-lot easier and means we don’t have to rewrite any existing code. Also makes working in teams easier, using a framework like Vue everyone knows the rules that it puts in place.</div></div><div><br></div><h3>Different ways to use Vue.js</h3><div><ul><li>Widget Approach, - Vue can be used to control parts of HTMl pages or entire pages</li><li>Single Page Application - Server only sends one HTML page, thereafter, Vue takes over and controls the UI</li></ul></div>"
+    }
+  ]
+}

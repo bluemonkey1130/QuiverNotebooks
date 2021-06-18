@@ -1,0 +1,90 @@
+{
+  "title": "Core Concepts",
+  "cells": [
+    {
+      "type": "text",
+      "data": "A simple way to connect vue to an element is using&nbsp;<code>mount()</code>​&nbsp;<div>Declaring a instance of vue then mounting is using a css selector</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const app = Vue.createApp();\napp.mount('#user-goal');"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<section id=\"user-goal\">\n  <h2>My Course Goal</h2>\n  <p></p>\n</section>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Data property &amp; interpolation</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const app = Vue.createApp({\n      data(){\n        return {\n            someData: 'Data'\n            vueLink: 'http://www.saez.com/'\n        };\n    }\n});\napp.mount('#user-goal');"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<section id=\"user-goal\">\n  <h2>My Course Goal</h2>\n  \n  <!-- Using interpolation between HTML tags-->\n  <p>{{ someData }}</p>\n  \n  <!-- Using directive to bind attributes within HTML Tags-->\n  <p>Learn more <a v-bind:href=\"vueLink\" target=\"_blank\">about Vue</a></p>\n\n</section>"
+    },
+    {
+      "type": "text",
+      "data": "<b>Methods</b> can be set on the vue app object"
+    },
+    {
+      "type": "text",
+      "data": "Methods are to defined functions to be executed when something happens, Methods can be passed javascript objects"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const app = Vue.createApp({\n    data() {..},\n    \n    // Method are delcared along side the data attribute\n    methods: {\n        outputGoal() {\n            const randomNumber = Math.random();\n            if (randomNumber < 0.5) {\n                return 'Learn Vue!'\n            } else {\n                return 'Master Vue!'\n            }\n        }\n    }\n});"
+    },
+    {
+      "type": "text",
+      "data": "The method can be called within the page like below"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<section id=\"user-goal\">\n    <p>{{ outputGoal() }}</p>\n</section>"
+    },
+    {
+      "type": "text",
+      "data": "Using <b>This</b>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const app = Vue.createApp({\n    data() {\n        return {\n            courseGoalA: 'Finish the Course and learn view',\n            courseGoalB: 'Master Vue and create apps',\n            vueLink: 'http://www.saez.com/'\n        };\n    },\n    methods: {\n        outputGoal() {\n            const randomNumber = Math.random();\n            if (randomNumber < 0.5) {\n                return this.courseGoalA\n            } else {\n                return this.courseGoalB\n            }\n        }\n    }\n});"
+    },
+    {
+      "type": "text",
+      "data": "V-ON, can be used to add event listeners and modify data, samples include :click, :mouseenter etc ."
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "const app = Vue.createApp({\n  data() {\n    return {\n      counter: 0,\n    };\n  },\n});\n\napp.mount('#events');\n"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<section id=\"events\">\n  <h2>Events in Action</h2>\n  <button v-on:click=\"counter++\">Add</button>\n  <button v-on:click=\"counter--\">Remove</button>\n  <p>Result: {{ counter }}</p>\n</section>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    }
+  ]
+}

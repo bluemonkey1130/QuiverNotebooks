@@ -1,0 +1,23 @@
+{
+  "title": "Craft Query",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>Query for section called pages, super table &gt; Matrix</div>"
+    },
+    {
+      "type": "code",
+      "language": "xquery",
+      "data": "  entries(section: \"pages\") {\n    title\n    url\n    ... on pages_pages_Entry {\n      pageBuilder {\n        ... on pageBuilder_BlockType {\n          id\n          rowSettings {\n            rowWidth\n            rowColumns\n          }\n          rowContent {\n            ... on rowContent_textBlock_BlockType {\n              id\n              typeHandle\n              text\n            }\n            ... on rowContent_imageBlock_BlockType {\n              id\n              image {\n                url\n              }\n            }\n          }\n        }\n      }\n    }\n  }"
+    },
+    {
+      "type": "text",
+      "data": "Query for section Single page, super table &gt; Matrix (text and image block)"
+    },
+    {
+      "type": "code",
+      "language": "xquery",
+      "data": "{\n  entry(id: \"2454\") {\n    ... on pages_pages_Entry {\n      id\n      title\n      pageBuilder {\n        ... on pageBuilder_BlockType {\n          id\n          rowSettings {\n            rowWidth\n            rowColumns\n          }\n          rowContent {\n            ... on rowContent_textBlock_BlockType {\n              id\n              typeHandle\n              text\n            }\n            ... on rowContent_imageBlock_BlockType {\n              id\n              typeHandle\n              image {\n                url\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+    }
+  ]
+}
