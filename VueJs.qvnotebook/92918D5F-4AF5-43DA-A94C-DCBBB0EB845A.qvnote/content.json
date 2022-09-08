@@ -1,0 +1,13 @@
+{
+  "title": "Useful",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2><ul><li><font size=\"2\">v-bind:attr=“” |</font><br></li><ul><li><font size=\"2\">v-bind”value || :value</font><br></li></ul><li><span style=\"font-size: 13px;\">v-html=“</span><font size=\"2\">”</font><br></li><li><font size=\"2\">v-on:event=“” |</font></li><ul><li><font size=\"2\">v-on:click=“” || @click</font></li><ul></ul><li><font size=\"2\">v-on:input=“” || @input<br></font></li><li><font size=\"2\">V-on:submit=“ || @submit</font><br></li></ul><li><font size=\"2\">v-model = (v-on + v-bind) = two way binding</font></li></ul></h2>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

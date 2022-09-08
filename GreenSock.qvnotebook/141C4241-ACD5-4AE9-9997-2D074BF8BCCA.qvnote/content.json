@@ -1,0 +1,18 @@
+{
+  "title": "Core Plugins",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3><b>AttrPlugin</b>&nbsp;</h3><div>Animate any numeric attribute of DOM element</div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// SYNTAX\nattr: {property:value1,property2:value2,...}\n\n// the composition of the attr:{} object\npropertyN // the name of the property corrosponding to the attribute of the DOM element\nvalueN // the target numeric value of the corrosponding property\n\ngsap.set(\"#selector\", {\n  attr: {\n    width: 100,\n    height: 200\n  }\n}); "
+    },
+    {
+      "type": "text",
+      "data": "<h3>CSSPlugin</h3><div><ul><li><b>Basic CSS properties: </b>width, height, margin, padding, top, left ...<br></li><li><b>Transforms</b>: rotation, scaleX, scaleY, skewX, skewY, x, y, rotationX, rotation Y...<br></li><li><b>Other CSS Properties</b>: opacity, box-shadow, transform-origin...<br></li><li><b>Filters</b>: blur(), grayscale(), sepia(), contrast(), brightness(), hue-rotate()...<br></li></ul></div>"
+    }
+  ]
+}

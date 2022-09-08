@@ -1,0 +1,17 @@
+{
+  "title": "Methods | Computed | Watch",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2>Methods</h2><div><ul><li>Use with event binding or data binding<br></li><li>Data binding: method is executed for every “re-render” cycle of the component<br></li><li>Use for events or data that really needs to be re-evaluated all the time</li></ul></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h2>Computed</h2><div><ul><li>Use with data binding</li><li>Computed properties are only re-evaluated if one of their “used values”</li><li>Use for data that depends on other data.</li></ul></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h2>Watch</h2><div><ul><li>Not used directly in template</li><li>Allows you to run any code in reaction to some data (e.g. send Http request etc)</li><li>Use for any non-data update you want to make</li></ul></div>"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Capabilities in Depth",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2>gsap.set() method</h2>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// SYNTAX\ngsap.set(element, {vars});\ngsap.set([el1, el2, el3], {vars);\n\nelement  // animation target\nvars // object of the properties to tween"
+    }
+  ]
+}

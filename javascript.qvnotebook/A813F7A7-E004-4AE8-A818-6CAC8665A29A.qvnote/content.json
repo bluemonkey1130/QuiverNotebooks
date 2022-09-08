@@ -1,0 +1,132 @@
+{
+  "title": "X2X",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div><span style=\"color: rgb(35, 38, 41); font-family: -apple-system, system-ui, &quot;Segoe UI Adjusted&quot;, &quot;Segoe UI&quot;, &quot;Liberation Sans&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); text-decoration-thickness: initial;\">This will list everything available on the&nbsp;</span><code style=\"padding: var(--su2) var(--su4); border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: var(--ff-mono); font-size: var(--fs-body1); vertical-align: baseline; box-sizing: inherit; white-space: pre-wrap; color: rgb(35, 38, 41); border-radius: var(--br-sm); orphans: 2; widows: 2; text-decoration-thickness: initial;\">window</code><span style=\"color: rgb(35, 38, 41); font-family: -apple-system, system-ui, &quot;Segoe UI Adjusted&quot;, &quot;Segoe UI&quot;, &quot;Liberation Sans&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); text-decoration-thickness: initial;\">&nbsp;object (all the functions and variables, e.g.,&nbsp;</span><code style=\"padding: var(--su2) var(--su4); border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: var(--ff-mono); font-size: var(--fs-body1); vertical-align: baseline; box-sizing: inherit; white-space: pre-wrap; color: rgb(35, 38, 41); border-radius: var(--br-sm); orphans: 2; widows: 2; text-decoration-thickness: initial;\">$</code><span style=\"color: rgb(35, 38, 41); font-family: -apple-system, system-ui, &quot;Segoe UI Adjusted&quot;, &quot;Segoe UI&quot;, &quot;Liberation Sans&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); text-decoration-thickness: initial;\">&nbsp;and&nbsp;</span><code style=\"padding: var(--su2) var(--su4); border: 0px; font-variant-ligatures: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; font-family: var(--ff-mono); font-size: var(--fs-body1); vertical-align: baseline; box-sizing: inherit; white-space: pre-wrap; color: rgb(35, 38, 41); border-radius: var(--br-sm); orphans: 2; widows: 2; text-decoration-thickness: initial;\">jQuery</code><span style=\"color: rgb(35, 38, 41); font-family: -apple-system, system-ui, &quot;Segoe UI Adjusted&quot;, &quot;Segoe UI&quot;, &quot;Liberation Sans&quot;, sans-serif; font-size: 15px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); text-decoration-thickness: initial;\">&nbsp;on this page, etc.).</span><br></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "for(var b in window) { \n  if(window.hasOwnProperty(b)) console.log(b); \n}"
+    },
+    {
+      "type": "text",
+      "data": "Print out variables in console"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "console.info(JSON.stringify(ctx, null, '  '))"
+    },
+    {
+      "type": "text",
+      "data": "Random Array Index"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "   function random_item(items) {\n        return items[Math.floor(Math.random()*items.length)];\n    }"
+    },
+    {
+      "type": "text",
+      "data": "<h2>Base Script Pattern</h2>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "let templateApp=(()=>{\n    let init=()=>{\n        $(document).ready(function() {\n           yourName();\n        });\n        document.fonts.ready.then(function () {\n            yourSecondName();\n        });\n    },\n    yourName=()=>{\n      // LOGIC\n    },\n    yourSecondName=()=>{\n      // LOGIC\n    },\n    ;\n    init();\n    return {};\n})();"
+    },
+    {
+      "type": "text",
+      "data": "Get hot spot infor from data.atrr"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setHotSpot=()=>{\n    const image = document.getElementById('hero-image');\n    $(image).css(\"background-position\", image.dataset.hotspotX + \"% \" + image.dataset.hotspotY + \"%\");\n},"
+    },
+    {
+      "type": "text",
+      "data": "Get collection of images"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setRandomBackground=()=>{\n    // Asset Group GUID\n    var guid = \"c73b28a9-e973-46d1-9332-22df96d4e04e\";\n    // GET DATA (JQUERY) : https://pix.online/getassetgroupjson?guid=c73b28a9-e973-46d1-9332-22df96d4e04e\n    $.get(\"/getassetgroupjson?guid=\" + guid).done(data=>{\n        //GET RANDOM ELEMENT WITHIN THE ARRAY\n        var rando = getRandomItem(data);\n        \n        // WRITE GUID REF INTO BACKGROUND STYLE CSS\n        var imgUrl= \"/?action=asset&id=\"+ rando.Guid;\n        \n        //set background img\n        document.getElementById('backGround').style.backgroundImage = \"url(\" + imgUrl + \")\";\n        $(\".loginpanel\").addClass(rando.Var1).css(\"opacity\",1);\n        \n        //set background hotspot\n        if(rando.HotspotX>0||rando.HotspotY>0){\n            $(\"#backGround\").css(\"background-position\", rando.HotspotX + \"% \" + rando.HotspotY + \"%\");\n        }\n        \n        //wait for image load before revealing\n        var img = document.createElement(\"img\");\n        img.onload=()=>{\n            //reveal background\n            $(\"#backGround\").css(\"opacity\",1);\n        };\n        img.src=imgUrl;\n    });\n},\ngetRandomItem=(items)=>{\n    // RANDOM ELEMENT FROM ARRAY\n    return items[Math.floor(Math.random()*items.length)];\n}"
+    },
+    {
+      "type": "text",
+      "data": "Hide Empty images"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "hideUnusedBreakerImages = () => {\n  $(\".breaker .grid img\").each((i, elem) => {\n    const src = elem.getAttribute('src')\n    if (!src) {\n      elem.parentNode.parentNode.style.display = 'none';\n    }\n  });\n},"
+    },
+    {
+      "type": "text",
+      "data": "Get Data Ajax"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "  getData=()=>{\n      let guid=\"d7e2378c-3007-4a30-83fc-f64a8753cb87\";\n      $.get(\"/getassetgroupjson?guid=\" + guid).done(data=>{\n          // Pass data to function\n          createElements(data);\n          // Pass data to player\n          player.setAssets(data);\n      });\n  },"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "        let dataOne=[];\n        let dataTwo=[];\n        // Get data from page one\n        $.get( \"/getassetgroupjson?guid=\" + guidOne, function( data ) {\n            // Push data to array\n            dataOne.push(data);\n        }).done(function() { // When done get data from page two\n            // Get data from page two\n            $.get( \"/getassetgroupjson?guid=\" + guidTwo, function( data ) {\n                // Push data to array\n                dataTwo.push(data);\n            }).done(function(){ // When done merged arrays and flatten\n                dataOne.push(...dataTwo);\n                let data = [].concat.apply([],dataOne);\n                // Create Elements\n                createElements(data);\n                // Pass data to player\n                player.setAssets(data);\n            })\n            \n        });"
+    },
+    {
+      "type": "text",
+      "data": "Jquery.when()<div><div><br></div></div>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "getData=()=>{\n    let url=\"/getassetgroupjson?guid=\";   \n    let pageOne= url + \"d7e2378c-3007-4a30-83fc-f64a8753cb87\";\n    let pageTwo= url + \"18c3a3bc-d811-4fbd-9642-64152c8cd2aa\";\n    // Execute a function after two Ajax requests are successful\n    $.when( $.ajax( pageOne ), $.ajax( pageTwo ) ).done(function( d1, d2 ) {\n        // d1 and d2 are arguments resolved for the pageOne and pageTwo ajax requests, respectively.\n        // Each argument is an array with the following structure: [ data, statusText, jqXHR ]\n        let data = [];\n        // Add d1[data] + d2[data] to data array\n        data.push(...d1[ 0 ],...d2[ 0 ]);\n        // Create Elements with data\n        createElements(data);\n         // Pass data to player\n        player.setAssets(data);\n    });\n},"
+    },
+    {
+      "type": "text",
+      "data": "Split Text"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "adjustText=()=>{\n    $(\"#title\").each((i,e)=>{\n        split = new SplitText(e, {type: \"words,chars\"});\n        \n        split.chars.forEach(e=>{\n            $(e).attr(\"data-char\",e.innerText);\n        });\n        \n    });\n}"
+    },
+    {
+      "type": "text",
+      "data": "modText"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": " modText=()=>{\n    $('#title').html(function(i,v){\n      v=v.replace(/Gilded Age/g,'<span class=\"no-break\">Gilded Age</span>');\n      return v;\n    });\n  }"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": " div[data-char=R]+div[data-char=A]{\n    margin-left: 0.03em;\n}\ndiv[data-char=A]+div[data-char=T]{\n    margin-left: -0.06em;\n}\ndiv[data-char=T]+div[data-char=A]{\n    margin-left: -0.06em;\n}\ndiv[data-char=E]+div[data-char=R]{\n    margin-left: -0.03em;\n}\n div[data-char=C]+div[data-char=T]{\n    margin-left: 0.03em;\n}\ndiv[data-char=L]+div[data-char=A]{\n    margin-left: 0.03em;\n}\ndiv[data-char=Y]+div[data-char=\".\"]{\n    margin-left: -0.1em;\n}\ndiv[data-char=T]+div[data-char=\".\"]{\n    margin-left: -0.1em;\n}"
+    },
+    {
+      "type": "text",
+      "data": "DATE"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "const localDate = new Date(unixDate).toLocaleDateString(undefined, {  // convert date to locale with formatting\n    year: \"numeric\",\n    month: \"long\",\n    day: \"2-digit\"\n}).replace(',','');"
+    },
+    {
+      "type": "text",
+      "data": "get el attributes GSAP"
+    },
+    {
+      "type": "code",
+      "language": "css",
+      "data": "gsap.utils.toArray(\".image-wrap\").forEach((section, i) => {\n      section.bg = section.querySelector(\".img\");\n      gsap.fromTo(section.bg, {\n          backgroundPosition: (i, el) => // start background position based on data attributes\n              (parseFloat(el.getAttribute(\"data-hotspot-x\"))) + \"% \" + (parseFloat(el.getAttribute(\"data-hotspot-y\"))) + \"%\"\n      }, {\n          backgroundPosition: (i, el) =>  // end background position based on data attributes (y - 2%)\n              (parseFloat(el.getAttribute(\"data-hotspot-x\"))) + `%  `+ (parseFloat(el.getAttribute(\"data-hotspot-y\")) + 2) +`%`,\n          ease: \"none\",\n          scrollTrigger: {\n              trigger: section,\n              start: \"top top\",\n              end: \"bottom top\",\n              scrub: true,\n              invalidateOnRefresh: true\n          }\n      });\n  });"
+    }
+  ]
+}

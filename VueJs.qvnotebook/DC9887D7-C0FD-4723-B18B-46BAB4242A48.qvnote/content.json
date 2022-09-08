@@ -49,7 +49,7 @@
     {
       "type": "code",
       "language": "html",
-      "data": "<section id=\"user-goal\">\n    <p>{{ outputGoal() }}</p>\n</section>"
+      "data": "<section id=\"user-goal\">\n    <p v-html=\"outputGoal()\"></p>\n    <p>{{ outputGoal() }}</p>\n</section>"
     },
     {
       "type": "text",
@@ -58,7 +58,7 @@
     {
       "type": "code",
       "language": "javascript",
-      "data": "const app = Vue.createApp({\n    data() {\n        return {\n            courseGoalA: 'Finish the Course and learn view',\n            courseGoalB: 'Master Vue and create apps',\n            vueLink: 'http://www.saez.com/'\n        };\n    },\n    methods: {\n        outputGoal() {\n            const randomNumber = Math.random();\n            if (randomNumber < 0.5) {\n                return this.courseGoalA\n            } else {\n                return this.courseGoalB\n            }\n        }\n    }\n});"
+      "data": "const app = Vue.createApp({\n    data() {\n        return {\n            courseGoalA: 'Finish the Course and learn view',\n            courseGoalB: 'Master Vue and create apps',\n            vueLink: 'http://www.vuejs.org/'\n        };\n    },\n    methods: {\n        outputGoal() {\n            const randomNumber = Math.random();\n            if (randomNumber < 0.5) {\n                return this.courseGoalA\n            } else {\n                return this.courseGoalB\n            }\n        }\n    }\n});"
     },
     {
       "type": "text",
@@ -73,6 +73,66 @@
       "type": "code",
       "language": "html",
       "data": "<section id=\"events\">\n  <h2>Events in Action</h2>\n  <button v-on:click=\"counter++\">Add</button>\n  <button v-on:click=\"counter--\">Remove</button>\n  <p>Result: {{ counter }}</p>\n</section>"
+    },
+    {
+      "type": "text",
+      "data": "Better Way: logic in script"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<button v-on:click=\"add()\">Add</button>\n<button v-on:click=\"remove()\">Remove</button>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "methods:{\n  add(){\n    this.counter ++\n  },\n  remove(){\n    this.counter --\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": "Passing event arguments"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<button v-on:click=\"add(5)\">Add 5</button>\n<button v-on:click=\"remove(3)\">Remove 3</button>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "methods:{\n  add(amount){\n    this.counter = this.counter + amount\n  },\n  remove(amount){\n    this.counter = this.counter - amount\n  }\n}"
+    },
+    {
+      "type": "text",
+      "data": "Event object to get value"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<input type=\"text\" v-on:input=\"setName($event)\">\n<p>Your Name:{{ userName }}</p>"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "setName(event) {\n  this.userName = event.target.value\n}"
+    },
+    {
+      "type": "text",
+      "data": "Event Modifier"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "<form v-on:submit.prevent=\"submitForm\"> <!-- preventnDefault()-->"
+    },
+    {
+      "type": "code",
+      "language": "html",
+      "data": "v-on:click.right\nv-on:click.left\nv-on:click.middle"
+    },
+    {
+      "type": "text",
+      "data": ""
     },
     {
       "type": "text",

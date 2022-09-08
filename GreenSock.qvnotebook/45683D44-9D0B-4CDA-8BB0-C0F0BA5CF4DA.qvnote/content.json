@@ -1,0 +1,14 @@
+{
+  "title": "Staggered",
+  "cells": [
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "data": "// SYNTAX\nstagger: function(index, target, list){\n  // custom logic\n  return: delay;\n}\nlist // the tragets array [Array | NodeList]\ntarget // the target in the list at that index value [Object]\nindex // the index value from the list"
+    }
+  ]
+}
